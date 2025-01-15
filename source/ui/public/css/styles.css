@@ -1,0 +1,232 @@
+/* styles.css */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Arial";
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+    color: white;
+    -webkit-user-select: none; /* Chrome, Safari, Edge */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer */
+    user-select: none;         /* Standard */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url('sampler-background.png') no-repeat center center;
+    background-size: 100% 100%; /* Ensures the image fits the page size */
+    display: flex;
+}
+
+.vu-meter-container {
+    position: absolute;
+    top: 230px; /* Adjust the value as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Adjust the value as needed */
+    height: 100px; /* Adjust the value as needed */
+}
+
+canvas {
+position: absolute;
+top: 250;
+left: 0;
+width: 100px;
+height: 100px;
+}
+
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #444;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 2px solid #555;
+}
+
+.title {
+    flex: 1;
+}
+
+.dropdown {
+    position: absolute;
+    top: 308px; /* Adjust the value as needed */
+    left: 220px;
+    right: 0;
+    flex: 1;
+    text-align: center;
+}
+
+.dropdown select {
+    font-size: 3px; /* Adjust the value as needed */
+    width: 80px; /* Adjust the value as needed */
+    height: 25px; /* Adjust the value as needed */
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+}
+
+.top-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    border-bottom: 2px solid #555;
+}
+
+
+.bottom-section {
+    display: flex;
+    flex: 1;
+}
+
+.left-section, .right-section {
+    flex: 1;
+    border: 2px solid #555;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.label {
+    text-align: center;
+}
+
+.audio-meter {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    border: 2px solid #fff;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+    border-bottom: none;
+    background: linear-gradient(to bottom, #555, #222);
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.needle {
+    position: absolute;
+    width: 4px;
+    height: 100px;
+    background-color: red;
+    top: 0%;
+    left: 50%;
+    transform-origin: center bottom;
+    transform: rotate(-90deg); /* Start from the left side */
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+.tick {
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background-color: #fff;
+    top: 0;
+    left: 50%;
+    transform-origin: center bottom;
+}
+
+.knob-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    /*margin-top: 50px;*/
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.envelope-knob-section {
+    position: absolute;
+    top: 100px; /* Adjust the value as needed */
+    left: 0;
+    right: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center;
+    padding: 20px;
+}
+
+.effect-knob-section {
+    position: absolute;
+    top: 190px; /* Adjust the value as needed */
+    left: 0;
+    right: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center;
+    padding: 20px;
+}
+
+.effect-knob-section .knob {
+    background-color: #fd993d;
+}
+
+.envelope-knob-section .knob {
+    background-color: #8a6597;
+}
+
+.knob {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for transform and box-shadow */
+}
+
+.knob:hover,
+.knob.active {
+    transform: scale(1.1); /* Scale up the knob */
+    box-shadow: 0 0 10px rgba(248, 247, 247, 0.5); /* Add a shadow effect */
+}
+
+.knob-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.knob-label {
+    margin-top: 5px;
+    font-size: 10px;
+    color: #fffae5;
+    text-align: center; /* Center the text horizontally */
+}
+
+.knob .tick {
+    width: 2px;
+    height: 10px;
+    background-color: #000;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+

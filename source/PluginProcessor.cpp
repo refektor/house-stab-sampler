@@ -28,6 +28,7 @@ static const char* getMimeForExtension (const juce::String& extension)
         { { "html"  },  "text/html"                 },
         { { "txt"   },  "text/plain"               },
         { { "jpg"   },  "image/jpeg"               },
+        { { "png"   },  "image/png"                },
         { { "jpeg"  },  "image/jpeg"               },
         { { "svg"   },  "image/svg+xml"            },
         { { "ico"   },  "image/vnd.microsoft.icon" },
@@ -180,17 +181,21 @@ void PluginProcessor::applySoundADSRParams()
 }
 
 auto PluginProcessor::getResource(const juce::String& url) -> std::optional<Resource>
-{ 
-    static const auto resourceFileRoot = juce::File{"/Users/neighbours/dev/house-stab-sampler/source/ui/public/"};
+{
+    //const auto resourceToRetrieve = url == "/" ? "index.html" : url.fromFirstOccurrenceOf("/", false, false);
+    const auto resourceToRetrieve = url == "/" ? "index.html" : url.fromLastOccurrenceOf("/", false, false);
     
-    const auto resourceToRetrieve = url == "/" ? "index.html" : url.fromFirstOccurrenceOf("/", false, false);
+    // Convert resourceToRetrieve to a valid C++ identifier
+    juce::String resourceName = resourceToRetrieve.replaceCharacter('/', '_').replaceCharacter('.', '_').removeCharacters("-");
+    
+    // Get the resource data and size
+    int resourceSize = 0;
+    const char* resourceData = BinaryData::getNamedResource(resourceName.toRawUTF8(), resourceSize);
 
-    const auto resource = resourceFileRoot.getChildFile(resourceToRetrieve).createInputStream();
-
-    if (resource != nullptr)
+    if (resourceData != nullptr && resourceSize > 0)
     {
         const auto extension = resourceToRetrieve.fromLastOccurrenceOf(".", false, false);
-        return Resource{streamToVector(*resource), getMimeForExtension(extension)};
+        return Resource{std::vector<std::byte>(reinterpret_cast<const std::byte*>(resourceData), reinterpret_cast<const std::byte*>(resourceData) + resourceSize), getMimeForExtension(extension)};
     }
 
     return std::nullopt;

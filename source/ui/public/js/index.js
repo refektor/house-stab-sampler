@@ -1,4 +1,4 @@
-import * as Juce from "./juce/index.js";
+import * as Juce from "./juce/juce_index.js";
 
 const NUM_PRESETS = 38;
 let firstLoad = true;

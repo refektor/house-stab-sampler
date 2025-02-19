@@ -1,6 +1,5 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
-#include "BinaryData.h"
 
 //==============================================================================
 PluginProcessorEditor::PluginProcessorEditor (PluginProcessor& p)

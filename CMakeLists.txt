@@ -67,14 +67,24 @@ target_compile_definitions(${PROJECT_NAME}
 
 # Collect all .wav files in the presets folder
 file(GLOB WAV_FILES "${CMAKE_CURRENT_SOURCE_DIR}/presets/*.wav")
-
+# Collect all resource files in the ui/public directory and subdirectories
+file(GLOB_RECURSE RESOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/source/ui/public/*")
 # Add the collected .wav files to juce_add_binary_data
-juce_add_binary_data(PresetSamples
+juce_add_binary_data(BinaryData
     SOURCES
     ${WAV_FILES}
+    ${RESOURCE_FILES}
 )
+target_link_libraries(${PROJECT_NAME} PRIVATE BinaryData)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE PresetSamples)
+
+# # Add the collected resource files to juce_add_binary_data
+# juce_add_binary_data(UiResourcesBinaryData
+#     HEADER_NAME "UiResources.h"
+#     SOURCES
+#     ${RESOURCE_FILES}
+# )
+# target_link_libraries(${PROJECT_NAME} PRIVATE UiResourcesBinaryData)
 
 # JUCE libraries to bring into our project
 target_link_libraries(${PROJECT_NAME}
@@ -96,3 +106,11 @@ target_link_libraries(${PROJECT_NAME}
 
 file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/build/_deps/juce-src/modules/juce_gui_extra/native/javascript/" 
         DESTINATION "${CMAKE_CURRENT_SOURCE_DIR}/source/ui/public/js/juce/")
+
+# Rename juce's index.js to juce_index.js to avoid conflicts with our own index.js building the juce binary data
+file(RENAME "${CMAKE_CURRENT_SOURCE_DIR}/source/ui/public/js/juce/index.js" "${CMAKE_CURRENT_SOURCE_DIR}/source/ui/public/js/juce/juce_index.js")        
+
+set_target_properties(HouseStabSamples PROPERTIES
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/artifacts"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/artifacts"
+)

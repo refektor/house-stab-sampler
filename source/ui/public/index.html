@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neighbourhood Samples</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="dropdown">
+        <select id="presets" name="presets"></select>
+      </div>
+      <div class="envelope-knob-section">
+        <fieldset class="knob-container-border">
+          <legend class="text">Envelope</legend>
+        </fieldset>
+        <div class="knob-container">
+          <div class="knob-wrapper">
+            <div class="knob-steps"></div>
+            <div class="knob" id="attack"><div class="tick"></div></div>
+            <div class="knob-label">Attack</div>
+          </div>
+          <div class="knob-wrapper">
+            <div class="knob-steps"></div>
+            <div class="knob" id="decay"><div class="tick"></div></div>
+            <div class="knob-label">Decay</div>
+          </div>
+          <div class="knob-wrapper">
+            <div class="knob-steps"></div>
+            <div class="knob" id="sustain"><div class="tick"></div></div>
+            <div class="knob-label">Sustain</div>
+          </div>
+          <div class="knob-wrapper">
+            <div class="knob-steps"></div>
+            <div class="knob" id="release"><div class="tick"></div></div>
+            <div class="knob-label">Release</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="effect-knob-section">
+        <fieldset class="knob-container-border">
+          <legend class="text">Effects</legend>
+        </fieldset>
+        <div class="knob-container">
+          <div class="knob-wrapper">
+            <div class="knob-steps"></div>
+            <div class="knob" id="drive"><div class="tick"></div></div>
+            <div class="knob-label">Drive</div>
+          </div>
+          <div class="knob-wrapper">
+            <div class="knob-steps"></div>
+            <div class="knob" id="chorus"><div class="tick"></div></div>
+            <div class="knob-label">Chorus</div>
+          </div>
+          <div class="knob-wrapper">
+            <div class="knob-steps"></div>
+            <div class="knob" id="delay"><div class="tick"></div></div>
+            <div class="knob-label">Delay</div>
+          </div>
+          <div class="knob-wrapper">
+            <div class="knob-steps"></div>
+            <div class="knob" id="reverb"><div class="tick"></div></div>
+            <div class="knob-label">Reverb</div>
+          </div>
+        </div>
+      </div>
+      <div class="vu-meter-wrapper">
+        <div class="vu-meter-cover"></div>
+        <div class="vu-meter-container">
+          <canvas id="needleCanvas"></canvas>
+        </div>
+        <div class="vu-meter-bg"></div>
+      </div>
+      <div class="output-knob-section">
+        <div class="output-knob-wrapper">
+          <div class="output-knob-steps"></div>
+          <div class="output-knob" id="gain"><div class="tick"></div></div>
+          <div class="output-knob-label">Output Gain</div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="js/index.js"></script>
+  </body>
+</html>

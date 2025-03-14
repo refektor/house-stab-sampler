@@ -1,0 +1,1622 @@
+-------------------------------------
+Translated Report (Full Report Below)
+-------------------------------------
+
+Process:               Live [72717]
+Path:                  /Applications/Ableton Live 12 Suite.app/Contents/MacOS/Live
+Identifier:            com.ableton.live
+Version:               12.1.5 (2024-12-11_18e1550166) (12.1.5 (2024-12-11_18e1550166))
+Code Type:             ARM-64 (Native)
+Parent Process:        launchd [1]
+User ID:               501
+
+Date/Time:             2024-12-15 20:38:03.5901 -0500
+OS Version:            macOS 14.2.1 (23C71)
+Report Version:        12
+Anonymous UUID:        A5BE3CCE-90E1-A0A3-FCDE-68DEC4A863FB
+
+
+Time Awake Since Boot: 1900000 seconds
+
+System Integrity Protection: enabled
+
+Crashed Thread:        0  MainThread
+
+Exception Type:        EXC_CRASH (SIGABRT)
+Exception Codes:       0x0000000000000000, 0x0000000000000000
+
+Termination Reason:    Namespace SIGNAL, Code 6 Abort trap: 6
+Terminating Process:   Live [72717]
+
+Kernel Triage:
+VM - (arg = 0x3) mach_vm_allocate_kernel failed within call to vm_map_enter
+VM - (arg = 0x3) mach_vm_allocate_kernel failed within call to vm_map_enter
+VM - (arg = 0x3) mach_vm_allocate_kernel failed within call to vm_map_enter
+VM - (arg = 0x3) mach_vm_allocate_kernel failed within call to vm_map_enter
+VM - (arg = 0x3) mach_vm_allocate_kernel failed within call to vm_map_enter
+
+
+Thread 0 Crashed:: MainThread
+0   libsystem_kernel.dylib        	       0x1868120dc 0x186808000 + 41180
+1   libsystem_c.dylib             	       0x186755a40 0x1866df000 + 485952
+2   libsystem_malloc.dylib        	       0x18666cb08 0x18665e000 + 60168
+3   libsystem_malloc.dylib        	       0x18668c24c 0x18665e000 + 189004
+4   libsystem_malloc.dylib        	       0x18667e094 0x18665e000 + 131220
+5   libsystem_malloc.dylib        	       0x18667d2a8 0x18665e000 + 127656
+6   Live                          	       0x101e0decc 0x100e18000 + 16735948
+7   Live                          	       0x102e05068 0x100e18000 + 33476712
+8   Live                          	       0x102e1a7b0 0x100e18000 + 33564592
+9   Live                          	       0x102e165b4 0x100e18000 + 33547700
+10  Live                          	       0x102e16358 0x100e18000 + 33547096
+11  Live                          	       0x10301ecb4 0x100e18000 + 35679412
+12  Live                          	       0x10301ea68 0x100e18000 + 35678824
+13  Live                          	       0x102fb8c18 0x100e18000 + 35261464
+14  Live                          	       0x102fb9778 0x100e18000 + 35264376
+15  Live                          	       0x103aea0fc 0x100e18000 + 46997756
+16  Live                          	       0x102194f10 0x100e18000 + 20434704
+17  Live                          	       0x1021946a0 0x100e18000 + 20432544
+18  Live                          	       0x103af7c64 0x100e18000 + 47053924
+19  Live                          	       0x103adb14c 0x100e18000 + 46936396
+20  Live                          	       0x102194998 0x100e18000 + 20433304
+21  Live                          	       0x1021a2b7c 0x100e18000 + 20491132
+22  Live                          	       0x102f918bc void ableton::utility::detail::CallbackTypes<AEditableDeviceChain, void, ARemoteableList*, ACompound*, int, UComponentIterator&>::CallMemberFunc<&AEditableDeviceChain::DevicesAddController(ARemoteableList*, ACompound*, int, UComponentIterator&)>(void*, ARemoteableList*, ACompound*, int, UComponentIterator&) + 84
+23  Live                          	       0x1021a430c 0x100e18000 + 20497164
+24  Live                          	       0x102f822e4 0x100e18000 + 35037924
+25  Live                          	       0x102efb4f4 0x100e18000 + 34485492
+26  Live                          	       0x102f5dce0 0x100e18000 + 34888928
+27  Live                          	       0x102f5d864 0x100e18000 + 34887780
+28  Live                          	       0x102f5dab4 0x100e18000 + 34888372
+29  Live                          	       0x103ecfe78 0x100e18000 + 51084920
+30  Live                          	       0x104444084 0x100e18000 + 56803460
+31  Live                          	       0x103b96874 0x100e18000 + 47704180
+32  Live                          	       0x103b7c098 0x100e18000 + 47595672
+33  Live                          	       0x103b7be10 0x100e18000 + 47595024
+34  Live                          	       0x103c08780 0x100e18000 + 48170880
+35  Live                          	       0x1025eb21c 0x100e18000 + 24982044
+36  Live                          	       0x1025ea708 0x100e18000 + 24979208
+37  Live                          	       0x1023b7fd0 0x100e18000 + 22675408
+38  Live                          	       0x1023b6f9c 0x100e18000 + 22671260
+39  Live                          	       0x102303804 0x100e18000 + 21936132
+40  Live                          	       0x1022e8ce4 0x100e18000 + 21826788
+41  AppKit                        	       0x18a2a32d0 0x18a0c9000 + 1942224
+42  AppKit                        	       0x18a22e79c 0x18a0c9000 + 1464220
+43  AppKit                        	       0x18a22e45c 0x18a0c9000 + 1463388
+44  AppKit                        	       0x18a8db9f4 0x18a0c9000 + 8464884
+45  Live                          	       0x1022e3bac 0x100e18000 + 21805996
+46  AppKit                        	       0x18a52a908 0x18a0c9000 + 4593928
+47  AppKit                        	       0x18a0f5d74 0x18a0c9000 + 183668
+48  Live                          	       0x1022f0018 0x100e18000 + 21856280
+49  dyld                          	       0x1864c90e0 0x1864c3000 + 24800
+
+Thread 1:
+0   libsystem_pthread.dylib       	       0x186844e28 0x186843000 + 7720
+
+Thread 2:
+0   libsystem_pthread.dylib       	       0x186844e28 0x186843000 + 7720
+
+Thread 3:: NetIoThread
+0   libsystem_kernel.dylib        	       0x1868097f0 0x186808000 + 6128
+1   Live                          	       0x1021de198 void ableton::utility::detail::CallbackTypes<ANetIoThread, void, TUserData>::CallMemberFunc<&ANetIoThread::Main(TUserData)>(void*, TUserData) + 92
+2   Live                          	       0x101e18a1c 0x100e18000 + 16779804
+3   Live                          	       0x101e1d930 0x100e18000 + 16800048
+4   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+5   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 4:
+0   libsystem_kernel.dylib        	       0x186809874 0x186808000 + 6260
+1   libsystem_kernel.dylib        	       0x1868124b0 0x186808000 + 42160
+2   libsystem_kernel.dylib        	       0x186809bf8 0x186808000 + 7160
+3   CoreMIDI                      	       0x1a040848c 0x1a03d4000 + 214156
+4   CoreMIDI                      	       0x1a041966c 0x1a03d4000 + 284268
+5   CoreMIDI                      	       0x1a0416a64 0x1a03d4000 + 272996
+6   CoreMIDI                      	       0x1a04186c0 0x1a03d4000 + 280256
+7   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+8   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 5:: FileThread
+0   libsystem_kernel.dylib        	       0x1868097f0 0x186808000 + 6128
+1   Live                          	       0x102ce2254 0x100e18000 + 32285268
+2   Live                          	       0x101e18a1c 0x100e18000 + 16779804
+3   Live                          	       0x101e1d930 0x100e18000 + 16800048
+4   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+5   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 6:: IPC Channel Reader
+0   libsystem_kernel.dylib        	       0x1868121ec 0x186808000 + 41452
+1   Live                          	       0x102210168 0x100e18000 + 20939112
+2   Live                          	       0x102210634 0x100e18000 + 20940340
+3   Live                          	       0x102211d3c 0x100e18000 + 20946236
+4   Live                          	       0x102211930 0x100e18000 + 20945200
+5   Live                          	       0x101e18a1c 0x100e18000 + 16779804
+6   Live                          	       0x101e1d930 0x100e18000 + 16800048
+7   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+8   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 7:: caulk.messenger.shared:17
+0   libsystem_kernel.dylib        	       0x1868097f0 0x186808000 + 6128
+1   caulk                         	       0x190bd0544 0x190bce000 + 9540
+2   caulk                         	       0x190bd0244 0x190bce000 + 8772
+3   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+4   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 8:: caulk.messenger.shared:high
+0   libsystem_kernel.dylib        	       0x1868097f0 0x186808000 + 6128
+1   caulk                         	       0x190bd0544 0x190bce000 + 9540
+2   caulk                         	       0x190bd0244 0x190bce000 + 8772
+3   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+4   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 9:
+0   libsystem_kernel.dylib        	       0x18680f9c0 0x186808000 + 31168
+1   Live                          	       0x1049ebbf0 0x100e18000 + 62733296
+2   Live                          	       0x104a09e08 0x100e18000 + 62856712
+3   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+4   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 10:
+0   libsystem_kernel.dylib        	       0x18680d06c 0x186808000 + 20588
+1   libc++.1.dylib                	       0x1867714dc 0x18675e000 + 79068
+2   Live                          	       0x103c80660 0x100e18000 + 48662112
+3   Live                          	       0x105930b5c 0x100e18000 + 78744412
+4   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+5   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 11:: browser
+0   libsystem_kernel.dylib        	       0x1868097f0 0x186808000 + 6128
+1   Live                          	       0x1046dcef4 ableton::live_library::AsyncLibraryHub::Impl::workerThreadMain(ableton::live_library::AsyncLibraryHub::Impl*) + 388
+2   Live                          	       0x1046dd7b4 0x100e18000 + 59529140
+3   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+4   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 12:
+0   libsystem_kernel.dylib        	       0x18680f9c0 0x186808000 + 31168
+1   Live                          	       0x101ab3d2c 0x100e18000 + 13221164
+2   Live                          	       0x101ab3ab0 0x100e18000 + 13220528
+3   Live                          	       0x101aba0dc 0x100e18000 + 13246684
+4   Live                          	       0x101aba028 0x100e18000 + 13246504
+5   Live                          	       0x101ab9f30 0x100e18000 + 13246256
+6   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+7   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 13:: com.apple.NSEventThread
+0   libsystem_kernel.dylib        	       0x186809874 0x186808000 + 6260
+1   libsystem_kernel.dylib        	       0x1868124b0 0x186808000 + 42160
+2   libsystem_kernel.dylib        	       0x186809bf8 0x186808000 + 7160
+3   CoreFoundation                	       0x186927bf4 0x1868aa000 + 515060
+4   CoreFoundation                	       0x1869264bc 0x1868aa000 + 509116
+5   CoreFoundation                	       0x1869259ac 0x1868aa000 + 506284
+6   AppKit                        	       0x18a22c510 0x18a0c9000 + 1455376
+7   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+8   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 14:: AudioCalc
+0   libsystem_kernel.dylib        	       0x1868097f0 0x186808000 + 6128
+1   Live                          	       0x102637f28 0x100e18000 + 25296680
+2   Live                          	       0x101e18a1c 0x100e18000 + 16779804
+3   Live                          	       0x101e1d930 0x100e18000 + 16800048
+4   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+5   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 15:: AudioCalc
+0   libsystem_kernel.dylib        	       0x1868097f0 0x186808000 + 6128
+1   Live                          	       0x102637f28 0x100e18000 + 25296680
+2   Live                          	       0x101e18a1c 0x100e18000 + 16779804
+3   Live                          	       0x101e1d930 0x100e18000 + 16800048
+4   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+5   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 16:: AudioCalc
+0   libsystem_kernel.dylib        	       0x1868097f0 0x186808000 + 6128
+1   Live                          	       0x102637f28 0x100e18000 + 25296680
+2   Live                          	       0x101e18a1c 0x100e18000 + 16779804
+3   Live                          	       0x101e1d930 0x100e18000 + 16800048
+4   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+5   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 17:: com.apple.audio.IOThread.client
+0   libsystem_kernel.dylib        	       0x186809874 0x186808000 + 6260
+1   libsystem_kernel.dylib        	       0x1868124b0 0x186808000 + 42160
+2   libsystem_kernel.dylib        	       0x186809bf8 0x186808000 + 7160
+3   CoreAudio                     	       0x189193ca0 0x188e80000 + 3226784
+4   CoreAudio                     	       0x18906ab84 0x188e80000 + 2009988
+5   CoreAudio                     	       0x1890693b0 0x188e80000 + 2003888
+6   CoreAudio                     	       0x1891e8564 0x188e80000 + 3573092
+7   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+8   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 18:
+0   libsystem_pthread.dylib       	       0x186844e28 0x186843000 + 7720
+
+Thread 19:
+0   libsystem_pthread.dylib       	       0x186844e28 0x186843000 + 7720
+
+Thread 20:
+0   libsystem_pthread.dylib       	       0x186844e28 0x186843000 + 7720
+
+Thread 21:
+0   libsystem_kernel.dylib        	       0x18680d06c 0x186808000 + 20588
+1   libc++.1.dylib                	       0x186771570 0x18675e000 + 79216
+2   WrapPersist                   	       0x13cb08704 0x13c8d8000 + 2295556
+3   WrapPersist                   	       0x13cb0c838 0x13c8d8000 + 2312248
+4   WrapPersist                   	       0x13cb0c790 0x13c8d8000 + 2312080
+5   WrapPersist                   	       0x13cb0c6dc 0x13c8d8000 + 2311900
+6   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+7   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 22:
+0   libsystem_kernel.dylib        	       0x18680d06c 0x186808000 + 20588
+1   libc++.1.dylib                	       0x186771570 0x18675e000 + 79216
+2   MaxPlugLib                    	       0x17bb16014 0x17b320000 + 8347668
+3   MaxPlugLib                    	       0x17bb15bfc 0x17b320000 + 8346620
+4   MaxPlugLib                    	       0x17bb15ae4 0x17b320000 + 8346340
+5   MaxPlugLib                    	       0x17bb15904 0x17b320000 + 8345860
+6   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+7   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 23:: timer
+0   libsystem_kernel.dylib        	       0x18680d06c 0x186808000 + 20588
+1   MaxPlugLib                    	       0x17b61e2f8 0x17b320000 + 3138296
+2   MaxPlugLib                    	       0x17b657794 0x17b320000 + 3372948
+3   MaxPlugLib                    	       0x17b61de1c 0x17b320000 + 3137052
+4   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+5   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 24:: JUCE Timer
+0   libsystem_kernel.dylib        	       0x18680d06c 0x186808000 + 20588
+1   libc++.1.dylib                	       0x186771570 0x18675e000 + 79216
+2   MaxPlugLib                    	       0x17b926fc8 0x17b320000 + 6320072
+3   MaxPlugLib                    	       0x17b9586dc 0x17b320000 + 6522588
+4   MaxPlugLib                    	       0x17b927ac4 0x17b320000 + 6322884
+5   MaxPlugLib                    	       0x17b948da8 0x17b320000 + 6458792
+6   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+7   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 25:: tcp_listener
+0   libsystem_kernel.dylib        	       0x1868121c0 0x186808000 + 41408
+1   MaxPlugLib                    	       0x17b6f9418 0x17b320000 + 4035608
+2   MaxPlugLib                    	       0x17b61de1c 0x17b320000 + 3137052
+3   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+4   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 26:: CVDisplayLink
+0   libsystem_kernel.dylib        	       0x18680d06c 0x186808000 + 20588
+1   CoreVideo                     	       0x18f211528 0x18f20e000 + 13608
+2   CoreVideo                     	       0x18f2105f4 0x18f20e000 + 9716
+3   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+4   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 27:: JavaScriptCore libpas scavenger
+0   libsystem_kernel.dylib        	       0x18680d06c 0x186808000 + 20588
+1   JavaScriptCore                	       0x1a3b2148c 0x1a25a8000 + 22516876
+2   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+3   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 28:: com.apple.coreanimation.render-server
+0   libsystem_kernel.dylib        	       0x186809874 0x186808000 + 6260
+1   libsystem_kernel.dylib        	       0x1868124b0 0x186808000 + 42160
+2   libsystem_kernel.dylib        	       0x186809bf8 0x186808000 + 7160
+3   QuartzCore                    	       0x18ea2dfa4 0x18e9e6000 + 294820
+4   QuartzCore                    	       0x18ea2dd74 0x18e9e6000 + 294260
+5   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+6   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 29:: WebCore: Scrolling
+0   libsystem_kernel.dylib        	       0x186809874 0x186808000 + 6260
+1   libsystem_kernel.dylib        	       0x1868124b0 0x186808000 + 42160
+2   libsystem_kernel.dylib        	       0x186809bf8 0x186808000 + 7160
+3   CoreFoundation                	       0x186927bf4 0x1868aa000 + 515060
+4   CoreFoundation                	       0x1869264bc 0x1868aa000 + 509116
+5   CoreFoundation                	       0x1869259ac 0x1868aa000 + 506284
+6   CoreFoundation                	       0x1869a3704 0x1868aa000 + 1021700
+7   JavaScriptCore                	       0x1a273a4a4 0x1a25a8000 + 1647780
+8   JavaScriptCore                	       0x1a2756830 0x1a25a8000 + 1763376
+9   JavaScriptCore                	       0x1a25b1ae4 0x1a25a8000 + 39652
+10  libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+11  libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 30:
+0   libsystem_pthread.dylib       	       0x186844e28 0x186843000 + 7720
+
+Thread 31:
+0   libsystem_pthread.dylib       	       0x186844e28 0x186843000 + 7720
+
+Thread 32:
+0   libsystem_pthread.dylib       	       0x186844e28 0x186843000 + 7720
+
+Thread 33:: JUCE v8.0.4: Timer
+0   libsystem_kernel.dylib        	       0x18680d06c 0x186808000 + 20588
+1   libc++.1.dylib                	       0x186771570 0x18675e000 + 79216
+2   SamplerTemplate               	       0x2ccb9cf80 std::__1::cv_status std::__1::condition_variable::wait_for<long long, std::__1::ratio<1l, 1000000000l>>(std::__1::unique_lock<std::__1::mutex>&, std::__1::chrono::duration<long long, std::__1::ratio<1l, 1000000000l>> const&) + 336
+3   SamplerTemplate               	       0x2ccb9cbfc void std::__1::condition_variable::__do_timed_wait[abi:ue170006]<std::__1::chrono::steady_clock>(std::__1::unique_lock<std::__1::mutex>&, std::__1::chrono::time_point<std::__1::chrono::steady_clock, std::__1::chrono::duration<long long, std::__1::ratio<1l, 1000000000l>>>) + 104
+4   SamplerTemplate               	       0x2ccbcd47c std::__1::cv_status std::__1::condition_variable::wait_until<std::__1::chrono::steady_clock, std::__1::chrono::duration<double, std::__1::ratio<1l, 1000000000l>>>(std::__1::unique_lock<std::__1::mutex>&, std::__1::chrono::time_point<std::__1::chrono::steady_clock, std::__1::chrono::duration<double, std::__1::ratio<1l, 1000000000l>>> const&) + 132
+5   SamplerTemplate               	       0x2ccbcd318 bool std::__1::condition_variable::wait_until<std::__1::chrono::steady_clock, std::__1::chrono::duration<double, std::__1::ratio<1l, 1000000000l>>, juce::WaitableEvent::wait(double) const::$_29>(std::__1::unique_lock<std::__1::mutex>&, std::__1::chrono::time_point<std::__1::chrono::steady_clock, std::__1::chrono::duration<double, std::__1::ratio<1l, 1000000000l>>> const&, juce::WaitableEvent::wait(double) const::$_29) + 72
+6   SamplerTemplate               	       0x2ccb68040 bool std::__1::condition_variable::wait_for[abi:ue170006]<double, std::__1::ratio<1l, 1000l>, juce::WaitableEvent::wait(double) const::$_29>(std::__1::unique_lock<std::__1::mutex>&, std::__1::chrono::duration<double, std::__1::ratio<1l, 1000l>> const&, juce::WaitableEvent::wait(double) const::$_29) + 100
+7   SamplerTemplate               	       0x2ccb3a270 juce::WaitableEvent::wait(double) const + 196
+8   SamplerTemplate               	       0x2ccb3bdc0 juce::Thread::wait(double) const + 36
+9   SamplerTemplate               	       0x2ccad89a8 juce::Timer::TimerThread::run() + 424
+10  SamplerTemplate               	       0x2ccb3ae04 juce::Thread::threadEntryPoint() + 248
+11  SamplerTemplate               	       0x2ccb3b11c juce::juce_threadEntryPoint(void*) + 24
+12  SamplerTemplate               	       0x2ccb8c41c juce::Thread::createNativeThread(juce::Thread::Priority)::$_27::operator()(void*) const + 148
+13  SamplerTemplate               	       0x2ccb8c37c juce::Thread::createNativeThread(juce::Thread::Priority)::$_27::__invoke(void*) + 28
+14  libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+15  libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+Thread 34:: CVDisplayLink
+0   libsystem_kernel.dylib        	       0x18680d06c 0x186808000 + 20588
+1   CoreVideo                     	       0x18f211528 0x18f20e000 + 13608
+2   CoreVideo                     	       0x18f2105f4 0x18f20e000 + 9716
+3   libsystem_pthread.dylib       	       0x18684a034 0x186843000 + 28724
+4   libsystem_pthread.dylib       	       0x186844e3c 0x186843000 + 7740
+
+
+Thread 0 crashed with ARM Thread State (64-bit):
+    x0: 0x0000000000000000   x1: 0x0000000000000000   x2: 0x0000000000000000   x3: 0x0000000000000000
+    x4: 0x0000000000000073   x5: 0x000000000000002e   x6: 0x0000000000000001   x7: 0x0000000139454028
+    x8: 0x59ccb61812795cc1   x9: 0x59ccb619cf7bccc1  x10: 0x000000000000000a  x11: 0x0000000000000000
+   x12: 0x0000000000000037  x13: 0x00000000001ff800  x14: 0x00000000000007fb  x15: 0x00000000b700b042
+   x16: 0x0000000000000148  x17: 0x00000001e609b340  x18: 0x0000000000000000  x19: 0x0000000000000006
+   x20: 0x00000001dd029000  x21: 0x0000000000000103  x22: 0x00000001dd0290e0  x23: 0x000000016efe66d0
+   x24: 0x0000000000000000  x25: 0x0000000000000000  x26: 0x000000016efe7c7f  x27: 0x00000001dd029000
+   x28: 0x000000012c79eed0   fp: 0x000000016efe6020   lr: 0x0000000186849cc0
+    sp: 0x000000016efe6000   pc: 0x00000001868120dc cpsr: 0x40001000
+   far: 0x0000000000000000  esr: 0x56000080  Address size fault
+
+Binary Images:
+       0x16a0bc000 -        0x16a1f3fff com.apple.audio.units.Components (1.14) <06275638-4d71-370d-bf96-b30a567270e1> /System/Library/Components/CoreAudio.component/Contents/MacOS/CoreAudio
+       0x2a3340000 -        0x2a3c1bfff com.apple.audio.codecs.Components (7.0) <8479fc6b-3097-3c2f-b9ac-e1ece564d865> /System/Library/Components/AudioCodecs.component/Contents/MacOS/AudioCodecs
+       0x11af5c000 -        0x11afc7fff com.apple.AppleMetalOpenGLRenderer (1.0) <41cb4d99-6a07-366a-9e97-d047ce10daa2> /System/Library/Extensions/AppleMetalOpenGLRenderer.bundle/Contents/MacOS/AppleMetalOpenGLRenderer
+       0x2cc3c0000 -        0x2cd2fffff com.neighbours.SamplerTemplate (0.0.1) <9b2a9cf1-509f-36ea-86c6-1a672a44c3f2> /Users/USER/Library/Audio/Plug-Ins/VST3/SamplerTemplate.vst3/Contents/MacOS/SamplerTemplate
+       0x169628000 -        0x16962bfff com.cycling74.jsbuffer (8.6.5 (666)) <f58317fa-d961-31fc-8bec-6841fa6a6ae7> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/jsextensions/msp/jsbuffer.mxo/Contents/MacOS/jsbuffer
+       0x169614000 -        0x169617fff com.cycling74.jsxmlhttprequest (8.6.5 (666)) <205cd819-8983-3143-894a-52349ce3be69> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/jsextensions/max/jsxmlhttprequest.mxo/Contents/MacOS/jsxmlhttprequest
+       0x169600000 -        0x169603fff com.cycling74.jstrigger (8.6.5 (666)) <b7158d23-65fa-364a-b793-da4a2c95c872> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/jsextensions/max/jstrigger.mxo/Contents/MacOS/jstrigger
+       0x1693e8000 -        0x1693ebfff com.cycling74.jssqlresult (8.6.5 (666)) <1f69f97f-b828-3252-b772-19888afd84e0> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/jsextensions/max/jssqlresult.mxo/Contents/MacOS/jssqlresult
+       0x1647dc000 -        0x1647dffff com.cycling74.jssqlite (8.6.5 (666)) <05b2b551-6401-3dbe-aed0-57dde4ce5e52> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/jsextensions/max/jssqlite.mxo/Contents/MacOS/jssqlite
+       0x1647c8000 -        0x1647cbfff com.cycling74.jssnapshotapi (8.6.5 (666)) <542fcd99-5941-3540-bd3d-a1206b525616> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/jsextensions/max/jssnapshotapi.mxo/Contents/MacOS/jssnapshotapi
+       0x16474c000 -        0x16474ffff com.cycling74.jsrx256 (8.6.5 (666)) <64bd1685-e9e7-35bc-b3ee-aea839aa1704> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/jsextensions/max/jsrx256.mxo/Contents/MacOS/jsrx256
+       0x164738000 -        0x16473bfff com.cycling74.jsrequire (8.6.5 (666)) <291774aa-834c-3433-b7a1-275ab205323b> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/jsextensions/max/jsrequire.mxo/Contents/MacOS/jsrequire
+       0x164724000 -        0x164727fff com.cycling74.jsparamlistener (8.6.5 (666)) <cb453e30-1161-338d-9684-99eb9e3c2548> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/jsextensions/max/jsparamlistener.mxo/Contents/MacOS/jsparamlistener
+       0x164710000 -        0x164713fff com.cycling74.jsparaminfoprovider (8.6.5 (666)) <dbbe6cb0-fab0-35f0-8f73-0082f8ba12c9> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/jsextensions/max/jsparaminfoprovider.mxo/Contents/MacOS/jsparaminfoprovider
+       0x1646fc000 -        0x1646fffff com.cycling74.jsmaxobjlistener (8.6.5 (666)) <afedd03f-d004-3163-a811-334d098d4e8e> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/jsextensions/max/jsmaxobjlistener.mxo/Contents/MacOS/jsmaxobjlistener
+       0x1646e8000 -        0x1646ebfff com.cycling74.jsfolder (8.6.5 (666)) <bf13f0a7-e65a-3329-b7e2-355d1126075a> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/jsextensions/max/jsfolder.mxo/Contents/MacOS/jsfolder
+       0x164388000 -        0x16438ffff com.cycling74.jsliveapi (8.6.5 (666)) <8e76b684-619a-3256-bb6b-718cbdd480d1> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/jsextensions/m4l/jsliveapi.mxo/Contents/MacOS/jsliveapi
+       0x1637e8000 -        0x1637effff com.cycling74.jsjitter (8.6.5 (666)) <0d09c3b5-bf0f-3952-95a4-c7989a8dfd92> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/jsextensions/jitter/jsjitter.mxo/Contents/MacOS/jsjitter
+       0x1645cc000 -        0x1645ebfff com.cycling74.js (8.6.5 (666)) <efa9b76b-75e7-3f06-b562-1cd6478f7e21> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/externals/max/js.mxo/Contents/MacOS/js
+       0x148af4000 -        0x148af7fff libmozjs185.dylib (*) <23033907-3fdd-36d6-bdf9-fd03afa37684> /Applications/Ableton Live 12 Suite.app/Contents/Frameworks/libmozjs185.dylib
+       0x14ffbc000 -        0x14ffc3fff com.cycling74.comment (8.6.5 (666)) <12d0c903-22d0-3980-b982-0ce2561e305e> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/externals/max/comment.mxo/Contents/MacOS/comment
+       0x16a734000 -        0x16aadbfff com.cycling74.rnbopatcher (*) <adc5c9ea-0887-395f-833d-ca0ef837ecea> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/packages/RNBO/extensions/rnbopatcher.mxo/Contents/MacOS/rnbopatcher
+       0x14ffe4000 -        0x14ffe7fff com.acme.${PRODUCT_NAME:rfc1034identifier} (8.2.0) <11e2f200-6641-3c87-b652-6fdc3b7afca1> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/packages/max-mxj/extensions/mxj_safe.mxo/Contents/MacOS/mxj_safe
+       0x169838000 -        0x16995ffff com.cycling74.gl3 (8.6.5 (666)) <95beb1b2-dc17-3fd1-89a0-cb6a3dbebf5a> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/packages/Jitter Tools/extensions/gl3.mxo/Contents/MacOS/gl3
+       0x1495ec000 -        0x1495effff com.cycling74.probe.scope-tilde (8.6.5 (666)) <6b675d8f-31bf-3f23-9d8a-b6f5ccfb0a82> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/msp/probe.scope~.mxo/Contents/MacOS/probe.scope~
+       0x148ecc000 -        0x148ecffff com.cycling74.probe.meter-tilde (8.6.5 (666)) <d3fb6db1-78e5-3c90-9616-3c7f1034e4a1> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/msp/probe.meter~.mxo/Contents/MacOS/probe.meter~
+       0x13feec000 -        0x13feeffff com.cycling74.probe.history-tilde (8.6.5 (666)) <590d2aa0-67af-36a3-9c28-ab19a8344870> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/msp/probe.history~.mxo/Contents/MacOS/probe.history~
+       0x16436c000 -        0x164377fff com.cycling74.polybuffer (8.6.5 (666)) <7fb976df-2cba-3dd2-b872-c51635248088> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/msp/polybuffer.mxo/Contents/MacOS/polybuffer
+       0x148eac000 -        0x148eb7fff com.cycling74.max-tilde (8.6.5 (666)) <fc1750cf-bcbf-3289-ad4f-6092f1c62e78> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/msp/max~.mxo/Contents/MacOS/max~
+       0x13fed8000 -        0x13fedbfff com.cycling74.zoomer (8.6.5 (666)) <3bf1b8a0-5c1c-31c1-9007-b9e3baea5826> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/zoomer.mxo/Contents/MacOS/zoomer
+       0x164770000 -        0x16479ffff com.cycling74.yaml (8.6.5 (666)) <58cc1dab-00af-3b46-8ce6-654be751bcc4> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/yaml.mxo/Contents/MacOS/yaml
+       0x1491b4000 -        0x1491dffff com.cycling74.synophrys (8.6.5 (666)) <fe928227-7619-3008-8ba5-560ae7e2e39e> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/synophrys.mxo/Contents/MacOS/synophrys
+       0x164484000 -        0x16459ffff com.cycling74.sqlite (8.6.5 (666)) <ee2caf6b-eb13-3a6e-8730-2bc7c15abe82> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/sqlite.mxo/Contents/MacOS/sqlite
+       0x13e708000 -        0x13e70ffff com.cycling74.setplugpath (8.6.5 (666)) <54adbd9a-4125-3976-be4f-f793dd79b3ca> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/setplugpath.mxo/Contents/MacOS/setplugpath
+       0x13cce8000 -        0x13cceffff com.cycling74.querylib (8.6.5 (666)) <b4cc3976-f875-3f2a-a99c-d67ac23f6fcf> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/querylib.mxo/Contents/MacOS/querylib
+       0x13cccc000 -        0x13ccd7fff com.cycling74.pianoroll (8.6.5 (666)) <ae43e3ff-6d8b-33ed-8a38-488be7f9566d> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/pianoroll.mxo/Contents/MacOS/pianoroll
+       0x13e6f0000 -        0x13e6f7fff com.cycling74.palblocks (8.6.5 (666)) <c68e6a5f-80bd-3662-b837-cfd8275a7342> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/palblocks.mxo/Contents/MacOS/palblocks
+       0x13c8bc000 -        0x13c8bffff com.cycling74.objectview (8.6.5 (666)) <49fe8b49-a629-3833-b315-6b414300a378> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/objectview.mxo/Contents/MacOS/objectview
+       0x13c894000 -        0x13c8abfff com.cycling74.maxzlib (8.6.5 (666)) <6dd0952b-f5f8-30a5-b47d-2243d2d17e51> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/maxzlib.mxo/Contents/MacOS/maxzlib
+       0x2c8000000 -        0x2c9ffbfff com.cycling74.maxxslt (8.6.5 (666)) <db0f7e80-7e65-3831-b27d-051264d96efa> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/maxxslt.mxo/Contents/MacOS/maxxslt
+       0x164608000 -        0x164697fff com.cycling74.maxurl (8.6.5 (666)) <38529482-7204-37b5-9000-d2b66ae5a25b> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/maxurl.mxo/Contents/MacOS/maxurl
+       0x165000000 -        0x168187fff com.cycling74.maxclang (8.6.5 (666)) <ccac52e7-6cba-3f1f-8e45-275ee2bcfc98> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/maxclang.mxo/Contents/MacOS/maxclang
+       0x164210000 -        0x1642fbfff com.cycling74.genpatcher (8.6.5 (666)) <2002e5f3-6349-38cf-8634-a4927778c6a6> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/genpatcher.mxo/Contents/MacOS/genpatcher
+       0x13c728000 -        0x13c72bfff com.cycling74.debugwindow (8.6.5 (666)) <c05f164c-2898-3ee9-bd20-1112cb226b5d> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/debugwindow.mxo/Contents/MacOS/debugwindow
+       0x13c700000 -        0x13c707fff com.cycling74.autohelp (8.6.5 (666)) <6a85940d-a6c3-3c7b-83ad-a9594e2a516e> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/autohelp.mxo/Contents/MacOS/autohelp
+       0x14ff68000 -        0x14ff9ffff com.cycling74.live.guilib (8.6.5 (666)) <6469eba2-ef77-3610-af18-d3d2f802bcc9> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/m4l/live.guilib.mxo/Contents/MacOS/live.guilib
+       0x1643b0000 -        0x164453fff com.cycling74.sketch (8.6.5 (666)) <95003baf-b81a-3876-8259-c53c3762678f> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/jitter/sketch.mxo/Contents/MacOS/sketch
+       0x163648000 -        0x16377ffff com.cycling74.gl2 (8.6.5 (666)) <025967eb-7adf-3fe5-a94a-4d980d1e81f6> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/jitter/gl2.mxo/Contents/MacOS/gl2
+       0x13c71c000 -        0x13c71ffff com.cycling74.JitterAPI (1.7.0) <fca1e8d8-335d-3b5e-b9d5-51e338c21f78> /Applications/Ableton Live 12 Suite.app/Contents/Frameworks/JitterAPI.framework/Versions/A/JitterAPI
+       0x13c2e4000 -        0x13c2e7fff com.cycling74.fseventwatcher (8.6.5 (666)) <4282c91c-6fc6-3f43-b7a8-babff2559125> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/extensions/max/fseventwatcher.mxo/Contents/MacOS/fseventwatcher
+       0x13c26c000 -        0x13c297fff com.cycling74.patcher (8.6.5 (795b32eda25)) <9f6e3a55-6455-36b3-b506-8fc272f3f187> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/support/patcher.bundle/Contents/MacOS/patcher
+       0x13adf4000 -        0x13adf7fff com.cycling74.MaxAudioAPI (*) <2ffb36f6-621f-3889-aaa1-455d15a13a26> /Applications/Ableton Live 12 Suite.app/Contents/Frameworks/MaxAudioAPI.framework/Versions/A/MaxAudioAPI
+       0x14fa68000 -        0x14fba7fff libmozjs185_impl.dylib (*) <919cbda1-301b-36a8-877b-dd0e4552c71c> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Frameworks/libmozjs185_impl.dylib
+       0x149400000 -        0x149513fff com.cycling74.JitterAPIImpl (1.7.0) <ef98e1f6-18cb-3230-b17c-f20a95273106> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Frameworks/JitterAPIImpl.framework/Versions/A/JitterAPIImpl
+       0x1394ec000 -        0x1394effff com.cycling74.MaxLua (*) <367ebc1f-3e15-3478-9fef-8a322619ea89> /Applications/Ableton Live 12 Suite.app/Contents/Frameworks/MaxLua.framework/Versions/A/MaxLua
+       0x13cc14000 -        0x13cc9ffff com.cycling74.MaxLuaImpl (*) <8128e9dd-262c-399d-bc7d-bfaf065c34b8> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Frameworks/MaxLuaImpl.framework/Versions/A/MaxLuaImpl
+       0x13c7ec000 -        0x13c85ffff com.cycling74.MaxAudioAPIImpl (*) <1bcac3d1-6558-3aff-ba69-250bd451dde6> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Frameworks/MaxAudioAPIImpl.framework/Versions/A/MaxAudioAPIImpl
+       0x17b320000 -        0x17dc9bfff com.cycling74.MaxPlugLib ( (666)) <a3aba8f3-d041-3e9c-b91d-1c1fe4ae9988> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/support/MaxPlugLib.bundle/Contents/MacOS/MaxPlugLib
+       0x13addc000 -        0x13ade3fff com.cycling74.maxchecker (1.01) <b6dc3808-8b85-3506-9059-6c5f7cfefb00> /Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Max/Max.app/Contents/Resources/C74/support/maxchecker.bundle/Contents/MacOS/maxchecker
+       0x13c8d8000 -        0x13cbc7fff com.paceap.eden.WrapPersist (5.9.0 GM (b5097, edaa5278)) <65b1bc66-4708-3899-8775-cfdb8e295969> /Library/Frameworks/PACEEdenExperience.framework/Versions/A/WrapPersist.bundle/Contents/MacOS/WrapPersist
+       0x13e720000 -        0x13f407fff com.soundtoys.vst.EchoBoyJr (5.3.7.16421 Authorization: EchoBoyJr) <26afe112-7fe8-36cd-acb0-837922ef2331> /Library/Audio/Plug-Ins/VST/Soundtoys/EchoBoyJr.vst/Contents/MacOS/EchoBoyJr
+       0x12ffa8000 -        0x12ffc7fff com.apple.security.csparser (3.0) <223733db-4edb-301c-99bc-d4c647bb1ad2> /System/Library/Frameworks/Security.framework/Versions/A/PlugIns/csparser.bundle/Contents/MacOS/csparser
+       0x14c800000 -        0x14d687fff com.theaudioprogrammer.AcUnit (0.0.1) <fad6f1b1-9998-3efd-abbd-af2b7f4f57c1> /Users/USER/Library/Audio/Plug-Ins/VST3/AcUnit.vst3/Contents/MacOS/AcUnit
+       0x12e828000 -        0x12e82bfff com.apple.icloud.drive.fileprovider.override (1.0) <75745331-d4d7-374a-b7d0-6421dff7b065> /System/Library/Frameworks/FileProvider.framework/OverrideBundles/iCloudDriveFileProviderOverride.bundle/Contents/MacOS/iCloudDriveFileProviderOverride
+       0x12e8b0000 -        0x12e8cffff com.apple.findersync.fileprovideroverride.FinderSyncCollaborationFileProviderOverride (14.2) <c03af63c-8bae-3a07-a2c9-f0758a0853ac> /System/Library/Frameworks/FileProvider.framework/OverrideBundles/FinderSyncCollaborationFileProviderOverride.bundle/Contents/MacOS/FinderSyncCollaborationFileProviderOverride
+       0x12e810000 -        0x12e817fff com.apple.FileProviderOverride (1703.61.4) <7f04689c-ae98-3925-9e9a-268aa436a0cb> /System/Library/Frameworks/FileProvider.framework/OverrideBundles/FileProviderOverride.bundle/Contents/MacOS/FileProviderOverride
+       0x109cb8000 -        0x109cc3fff libobjc-trampolines.dylib (*) <7778e0d7-361a-378d-9438-3b2bb48c2154> /usr/lib/libobjc-trampolines.dylib
+       0x109ce8000 -        0x109e67fff libonnxruntime_abl.dylib (*) <8038ea9a-f0aa-3323-b68f-f754b5f98e85> /Applications/Ableton Live 12 Suite.app/Contents/Libraries/libonnxruntime_abl.dylib
+       0x109860000 -        0x109873fff libusb-1.0.dylib (*) <2b3a93c6-c899-37ba-87d2-8ec11b1d71fa> /Applications/Ableton Live 12 Suite.app/Contents/Libraries/libusb-1.0.dylib
+       0x1099c0000 -        0x109a07fff se.propellerheads.rex.library (*) <ddfec8a2-ead4-3fab-9674-1be6f6e189c9> /Applications/Ableton Live 12 Suite.app/Contents/Frameworks/REX Shared Library.framework/Versions/A/REX Shared Library
+       0x100e18000 -        0x106b5ffff com.ableton.live (12.1.5 (2024-12-11_18e1550166)) <c6f405a2-51bd-32d4-a0f1-d63f2d06bf1f> /Applications/Ableton Live 12 Suite.app/Contents/MacOS/Live
+       0x186808000 -        0x186842fff libsystem_kernel.dylib (*) <ca94fc21-bc40-3b43-b65d-b87ece9e1d48> /usr/lib/system/libsystem_kernel.dylib
+       0x1866df000 -        0x18675dffb libsystem_c.dylib (*) <ab8a0a0b-9a1e-3284-9243-5a0334468ae5> /usr/lib/system/libsystem_c.dylib
+       0x18665e000 -        0x186694fff libsystem_malloc.dylib (*) <690a8b04-8e64-3332-b5a5-56a3d5c1c43f> /usr/lib/system/libsystem_malloc.dylib
+       0x18a0c9000 -        0x18b3e3fff com.apple.AppKit (6.9) <f3527312-e426-3f7c-b77b-2bf49d1b7c04> /System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+       0x1864c3000 -        0x186557347 dyld (*) <324e4ad9-e01f-3183-b09f-3e20b326643a> /usr/lib/dyld
+               0x0 - 0xffffffffffffffff ??? (*) <00000000-0000-0000-0000-000000000000> ???
+       0x186843000 -        0x18684fff3 libsystem_pthread.dylib (*) <a7d94c96-7b1f-3229-9bea-048d037c3292> /usr/lib/system/libsystem_pthread.dylib
+       0x1a03d4000 -        0x1a0468fff com.apple.audio.midi.CoreMIDI (2.0) <b082b8bb-b7e7-3a3c-9e5a-144d8da94925> /System/Library/Frameworks/CoreMIDI.framework/Versions/A/CoreMIDI
+       0x190bce000 -        0x190bf7fff com.apple.audio.caulk (1.0) <25e50b84-b506-3db7-9a91-3824b9b8b880> /System/Library/PrivateFrameworks/caulk.framework/Versions/A/caulk
+       0x18675e000 -        0x1867ebff7 libc++.1.dylib (*) <375254eb-5a65-35d0-b6b4-773e6763d289> /usr/lib/libc++.1.dylib
+       0x1868aa000 -        0x186d81fff com.apple.CoreFoundation (6.9) <47e4ec09-8f6e-30a8-99d0-34024d4f8122> /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+       0x188e80000 -        0x189572fff com.apple.audio.CoreAudio (5.0) <2c54c60c-a5af-39f4-8286-0cb88fa43367> /System/Library/Frameworks/CoreAudio.framework/Versions/A/CoreAudio
+       0x18f20e000 -        0x18f26bfff com.apple.CoreVideo (1.8) <0bd999bf-c672-3dad-84f7-6eb32330d37f> /System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo
+       0x1a25a8000 -        0x1a3c7ffbf com.apple.JavaScriptCore (19617) <59330902-38d2-3e48-aed8-1b6327196141> /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/JavaScriptCore
+       0x18e9e6000 -        0x18edaefff com.apple.QuartzCore (1.11) <4a615554-86bd-36e4-aab6-39c377bdae2c> /System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore
+
+External Modification Summary:
+  Calls made by other processes targeting this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by all processes on this machine:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+
+VM Region Summary:
+ReadOnly portion of Libraries: Total=2.0G resident=0K(0%) swapped_out_or_unallocated=2.0G(100%)
+Writable regions: Total=6.1G written=0K(0%) resident=0K(0%) swapped_out=0K(0%) unallocated=6.1G(100%)
+
+                                VIRTUAL   REGION 
+REGION TYPE                        SIZE    COUNT (non-coalesced) 
+===========                     =======  ======= 
+Accelerate framework               256K        2 
+Activity Tracing                   256K        1 
+CG image                           240K       14 
+CG raster data                    6096K        2 
+ColorSync                          608K       30 
+CoreAnimation                     1584K       99 
+CoreGraphics                        64K        4 
+CoreImage                           16K        1 
+CoreServices                       624K        2 
+CoreUI image data                  976K       14 
+Foundation                         192K        2 
+Image IO                            64K        4 
+Kernel Alloc Once                   32K        1 
+MALLOC                             1.8G      117 
+MALLOC guard page                  384K       24 
+MALLOC_LARGE (reserved)           10.0M        1         reserved VM address space (unallocated)
+STACK GUARD                       56.5M       35 
+Stack                             26.5M       35 
+VM_ALLOCATE                      175.9M       65 
+VM_ALLOCATE (reserved)             3.9G        2         reserved VM address space (unallocated)
+WebKit Malloc                    192.1M        6 
+__AUTH                            3168K      445 
+__AUTH_CONST                      34.5M      670 
+__CTF                               824        1 
+__DATA                            34.3M      737 
+__DATA_CONST                      47.6M      742 
+__DATA_DIRTY                      1997K      246 
+__FONT_DATA                          4K        1 
+__GLSLBUILTINS                    5174K        1 
+__LINKEDIT                       986.8M       72 
+__MFRT                              16K        1 
+__OBJC_RO                         71.1M        1 
+__OBJC_RW                         2168K        1 
+__POVERDDATA                        16K        1 
+__POVERTEXT                         16K        1 
+__TEXT                             1.0G      765 
+dyld private memory               1808K        4 
+mapped file                        1.2G      114 
+shared memory                     1152K       17 
+===========                     =======  ======= 
+TOTAL                              9.5G     4281 
+TOTAL, minus reserved VM space     5.6G     4281 
+
+
+
+-----------
+Full Report
+-----------
+
+{"app_name":"Live","timestamp":"2024-12-15 20:38:06.00 -0500","app_version":"12.1.5 (2024-12-11_18e1550166)","slice_uuid":"c6f405a2-51bd-32d4-a0f1-d63f2d06bf1f","build_version":"12.1.5 (2024-12-11_18e1550166)","platform":1,"bundleID":"com.ableton.live","share_with_app_devs":0,"is_first_party":0,"bug_type":"309","os_version":"macOS 14.2.1 (23C71)","roots_installed":0,"name":"Live","incident_id":"BBAB4B12-3319-48DA-9BA0-E7C76C126933"}
+{
+  "uptime" : 1900000,
+  "procRole" : "Foreground",
+  "version" : 2,
+  "userID" : 501,
+  "deployVersion" : 210,
+  "modelCode" : "Macmini9,1",
+  "coalitionID" : 177406,
+  "osVersion" : {
+    "train" : "macOS 14.2.1",
+    "build" : "23C71",
+    "releaseType" : "User"
+  },
+  "captureTime" : "2024-12-15 20:38:03.5901 -0500",
+  "codeSigningMonitor" : 1,
+  "incident" : "BBAB4B12-3319-48DA-9BA0-E7C76C126933",
+  "pid" : 72717,
+  "translated" : false,
+  "cpuType" : "ARM-64",
+  "roots_installed" : 0,
+  "bug_type" : "309",
+  "procLaunch" : "2024-12-15 20:37:41.4830 -0500",
+  "procStartAbsTime" : 47352379381228,
+  "procExitAbsTime" : 47352908517695,
+  "procName" : "Live",
+  "procPath" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/MacOS\/Live",
+  "bundleInfo" : {"CFBundleShortVersionString":"12.1.5 (2024-12-11_18e1550166)","CFBundleVersion":"12.1.5 (2024-12-11_18e1550166)","CFBundleIdentifier":"com.ableton.live"},
+  "storeInfo" : {"deviceIdentifierForVendor":"B15EF854-BC1D-5B12-97C9-F0CBE83C198C","thirdParty":true},
+  "parentProc" : "launchd",
+  "parentPid" : 1,
+  "coalitionName" : "com.ableton.live",
+  "crashReporterKey" : "A5BE3CCE-90E1-A0A3-FCDE-68DEC4A863FB",
+  "codeSigningID" : "com.ableton.live",
+  "codeSigningTeamID" : "MWR434WD94",
+  "codeSigningFlags" : 570491649,
+  "codeSigningValidationCategory" : 6,
+  "codeSigningTrustLevel" : 4294967295,
+  "instructionByteStream" : {"beforePC":"fyMD1f17v6n9AwCRXOD\/l78DAJH9e8Go\/w9f1sADX9YQKYDSARAA1A==","atPC":"AwEAVH8jA9X9e7+p\/QMAkVHg\/5e\/AwCR\/XvBqP8PX9bAA1\/WcAqA0g=="},
+  "sip" : "enabled",
+  "exception" : {"codes":"0x0000000000000000, 0x0000000000000000","rawCodes":[0,0],"type":"EXC_CRASH","signal":"SIGABRT"},
+  "termination" : {"flags":0,"code":6,"namespace":"SIGNAL","indicator":"Abort trap: 6","byProc":"Live","byPid":72717},
+  "ktriageinfo" : "VM - (arg = 0x3) mach_vm_allocate_kernel failed within call to vm_map_enter\nVM - (arg = 0x3) mach_vm_allocate_kernel failed within call to vm_map_enter\nVM - (arg = 0x3) mach_vm_allocate_kernel failed within call to vm_map_enter\nVM - (arg = 0x3) mach_vm_allocate_kernel failed within call to vm_map_enter\nVM - (arg = 0x3) mach_vm_allocate_kernel failed within call to vm_map_enter\n",
+  "extMods" : {"caller":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"system":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"targeted":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"warnings":0},
+  "faultingThread" : 0,
+  "threads" : [{"triggered":true,"id":15979290,"name":"MainThread","threadState":{"x":[{"value":0},{"value":0},{"value":0},{"value":0},{"value":115},{"value":46},{"value":1},{"value":5255807016},{"value":6470746979129973953},{"value":6470746986595994817},{"value":10},{"value":0},{"value":55},{"value":2095104},{"value":2043},{"value":3070275650},{"value":328},{"value":8154362688},{"value":0},{"value":6},{"value":8002899968},{"value":259},{"value":8002900192},{"value":6157133520},{"value":0},{"value":0},{"value":6157139071},{"value":8002899968},{"value":5041155792}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6551805120},"cpsr":{"value":1073745920},"fp":{"value":6157131808},"sp":{"value":6157131776},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551576796,"matchesCrashFrame":1},"far":{"value":0}},"frames":[{"imageOffset":41180,"imageIndex":71},{"imageOffset":485952,"imageIndex":72},{"imageOffset":60168,"imageIndex":73},{"imageOffset":189004,"imageIndex":73},{"imageOffset":131220,"imageIndex":73},{"imageOffset":127656,"imageIndex":73},{"imageOffset":16735948,"imageIndex":70},{"imageOffset":33476712,"imageIndex":70},{"imageOffset":33564592,"imageIndex":70},{"imageOffset":33547700,"imageIndex":70},{"imageOffset":33547096,"imageIndex":70},{"imageOffset":35679412,"imageIndex":70},{"imageOffset":35678824,"imageIndex":70},{"imageOffset":35261464,"imageIndex":70},{"imageOffset":35264376,"imageIndex":70},{"imageOffset":46997756,"imageIndex":70},{"imageOffset":20434704,"imageIndex":70},{"imageOffset":20432544,"imageIndex":70},{"imageOffset":47053924,"imageIndex":70},{"imageOffset":46936396,"imageIndex":70},{"imageOffset":20433304,"imageIndex":70},{"imageOffset":20491132,"imageIndex":70},{"imageOffset":35100860,"symbol":"void ableton::utility::detail::CallbackTypes<AEditableDeviceChain, void, ARemoteableList*, ACompound*, int, UComponentIterator&>::CallMemberFunc<&AEditableDeviceChain::DevicesAddController(ARemoteableList*, ACompound*, int, UComponentIterator&)>(void*, ARemoteableList*, ACompound*, int, UComponentIterator&)","symbolLocation":84,"imageIndex":70},{"imageOffset":20497164,"imageIndex":70},{"imageOffset":35037924,"imageIndex":70},{"imageOffset":34485492,"imageIndex":70},{"imageOffset":34888928,"imageIndex":70},{"imageOffset":34887780,"imageIndex":70},{"imageOffset":34888372,"imageIndex":70},{"imageOffset":51084920,"imageIndex":70},{"imageOffset":56803460,"imageIndex":70},{"imageOffset":47704180,"imageIndex":70},{"imageOffset":47595672,"imageIndex":70},{"imageOffset":47595024,"imageIndex":70},{"imageOffset":48170880,"imageIndex":70},{"imageOffset":24982044,"imageIndex":70},{"imageOffset":24979208,"imageIndex":70},{"imageOffset":22675408,"imageIndex":70},{"imageOffset":22671260,"imageIndex":70},{"imageOffset":21936132,"imageIndex":70},{"imageOffset":21826788,"imageIndex":70},{"imageOffset":1942224,"imageIndex":74},{"imageOffset":1464220,"imageIndex":74},{"imageOffset":1463388,"imageIndex":74},{"imageOffset":8464884,"imageIndex":74},{"imageOffset":21805996,"imageIndex":70},{"imageOffset":4593928,"imageIndex":74},{"imageOffset":183668,"imageIndex":74},{"imageOffset":21856280,"imageIndex":70},{"imageOffset":24800,"imageIndex":75}]},{"id":15979307,"frames":[{"imageOffset":7720,"imageIndex":77}],"threadState":{"x":[{"value":6157692928},{"value":3843},{"value":6157156352},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6157692928},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551785000},"far":{"value":0}}},{"id":15979308,"frames":[{"imageOffset":7720,"imageIndex":77}],"threadState":{"x":[{"value":6158266368},{"value":4867},{"value":6157729792},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6158266368},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551785000},"far":{"value":0}}},{"id":15979365,"name":"NetIoThread","threadState":{"x":[{"value":14},{"value":4326450408},{"value":4721787984},{"value":32},{"value":536872960},{"value":25},{"value":0},{"value":0},{"value":1},{"value":2},{"value":0},{"value":2},{"value":0},{"value":0},{"value":4721737728},{"value":43520},{"value":18446744073709551580},{"value":8154351056},{"value":0},{"value":105553176942960},{"value":105553129738648},{"value":11},{"value":6159986504},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":4326450440},"cpsr":{"value":1610616832},"fp":{"value":6159986448},"sp":{"value":6159986432},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551541744},"far":{"value":0}},"frames":[{"imageOffset":6128,"imageIndex":71},{"imageOffset":20734360,"symbol":"void ableton::utility::detail::CallbackTypes<ANetIoThread, void, TUserData>::CallMemberFunc<&ANetIoThread::Main(TUserData)>(void*, TUserData)","symbolLocation":92,"imageIndex":70},{"imageOffset":16779804,"imageIndex":70},{"imageOffset":16800048,"imageIndex":70},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979367,"frames":[{"imageOffset":6260,"imageIndex":71},{"imageOffset":42160,"imageIndex":71},{"imageOffset":7160,"imageIndex":71},{"imageOffset":214156,"imageIndex":78},{"imageOffset":284268,"imageIndex":78},{"imageOffset":272996,"imageIndex":78},{"imageOffset":280256,"imageIndex":78},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}],"threadState":{"x":[{"value":268451845},{"value":17179869186},{"value":0},{"value":128655745351680},{"value":0},{"value":128655745351680},{"value":100},{"value":0},{"value":18446744073709550527},{"value":29955},{"value":0},{"value":1},{"value":29955},{"value":3221225472},{"value":0},{"value":11986688300355158016},{"value":18446744073709551569},{"value":8154346960},{"value":0},{"value":0},{"value":100},{"value":128655745351680},{"value":0},{"value":128655745351680},{"value":6160558544},{"value":0},{"value":17179869186},{"value":17179869186},{"value":2}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6551616752},"cpsr":{"value":4096},"fp":{"value":6160558208},"sp":{"value":6160558128},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551541876},"far":{"value":0}}},{"id":15979376,"name":"FileThread","threadState":{"x":[{"value":14},{"value":4326450408},{"value":131584},{"value":28},{"value":26},{"value":0},{"value":316368},{"value":1568},{"value":1},{"value":4966055936},{"value":648},{"value":2},{"value":14536608},{"value":4803755894},{"value":0},{"value":0},{"value":18446744073709551580},{"value":8154351056},{"value":0},{"value":105553177064816},{"value":4418449408},{"value":4418449408},{"value":4418449408},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":4326450440},"cpsr":{"value":1610616832},"fp":{"value":6165147376},"sp":{"value":6165147360},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551541744},"far":{"value":0}},"frames":[{"imageOffset":6128,"imageIndex":71},{"imageOffset":32285268,"imageIndex":70},{"imageOffset":16779804,"imageIndex":70},{"imageOffset":16800048,"imageIndex":70},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979383,"name":"IPC Channel Reader","threadState":{"x":[{"value":4},{"value":0},{"value":500},{"value":6165720000},{"value":6165719984},{"value":13632},{"value":0},{"value":1},{"value":1},{"value":105553180636488},{"value":0},{"value":2},{"value":0},{"value":0},{"value":2043},{"value":2392971691},{"value":230},{"value":2395066737},{"value":0},{"value":105553180636480},{"value":500},{"value":105553177038016},{"value":2},{"value":2},{"value":105553177038036},{"value":4},{"value":1},{"value":0},{"value":105553177038224}],"flavor":"ARM_THREAD_STATE64","lr":{"value":4372490328},"cpsr":{"value":1610616832},"fp":{"value":6165720080},"sp":{"value":6165719952},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551577068},"far":{"value":0}},"frames":[{"imageOffset":41452,"imageIndex":71},{"imageOffset":20939112,"imageIndex":70},{"imageOffset":20940340,"imageIndex":70},{"imageOffset":20946236,"imageIndex":70},{"imageOffset":20945200,"imageIndex":70},{"imageOffset":16779804,"imageIndex":70},{"imageOffset":16800048,"imageIndex":70},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979392,"name":"caulk.messenger.shared:17","threadState":{"x":[{"value":14},{"value":105553178273786},{"value":0},{"value":6356086890},{"value":105553178273760},{"value":25},{"value":0},{"value":0},{"value":0},{"value":4294967295},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":18446744073709551580},{"value":8154352456},{"value":0},{"value":105553117109808},{"value":105553117109808},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6723274384},"cpsr":{"value":2147487744},"fp":{"value":6356086656},"sp":{"value":6356086624},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551541744},"far":{"value":0}},"frames":[{"imageOffset":6128,"imageIndex":71},{"imageOffset":9540,"imageIndex":79},{"imageOffset":8772,"imageIndex":79},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979393,"name":"caulk.messenger.shared:high","threadState":{"x":[{"value":14},{"value":105553178273340},{"value":0},{"value":6356660332},{"value":105553178273312},{"value":27},{"value":0},{"value":0},{"value":0},{"value":4294967295},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":18446744073709551580},{"value":8154352456},{"value":0},{"value":105553117110016},{"value":105553117110016},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6723274384},"cpsr":{"value":2147487744},"fp":{"value":6356660096},"sp":{"value":6356660064},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551541744},"far":{"value":0}},"frames":[{"imageOffset":6128,"imageIndex":71},{"imageOffset":9540,"imageIndex":79},{"imageOffset":8772,"imageIndex":79},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979441,"frames":[{"imageOffset":31168,"imageIndex":71},{"imageOffset":62733296,"imageIndex":70},{"imageOffset":62856712,"imageIndex":70},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}],"threadState":{"x":[{"value":4},{"value":0},{"value":0},{"value":4418945892},{"value":32},{"value":0},{"value":2048},{"value":0},{"value":6357233376},{"value":18446744073708551616},{"value":1000000},{"value":2},{"value":5528125944},{"value":4294934532},{"value":3171},{"value":4294934015},{"value":363},{"value":6549919236},{"value":0},{"value":4418945880},{"value":4418945880},{"value":4418946928},{"value":4418945872},{"value":4418945848},{"value":5981755608},{"value":4418946916},{"value":4418945864},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":4372603852},"cpsr":{"value":2684358656},"fp":{"value":6357233424},"sp":{"value":6357233344},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551566784},"far":{"value":0}}},{"id":15979454,"frames":[{"imageOffset":20588,"imageIndex":71},{"imageOffset":79068,"imageIndex":80},{"imageOffset":48662112,"imageIndex":70},{"imageOffset":78744412,"imageIndex":70},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}],"threadState":{"x":[{"value":260},{"value":0},{"value":0},{"value":0},{"value":0},{"value":160},{"value":0},{"value":0},{"value":6357806744},{"value":0},{"value":4985054064},{"value":2},{"value":0},{"value":0},{"value":0},{"value":0},{"value":305},{"value":8154362616},{"value":0},{"value":4985054040},{"value":4985054152},{"value":6357807328},{"value":0},{"value":0},{"value":0},{"value":1},{"value":256},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6551807484},"cpsr":{"value":1610616832},"fp":{"value":6357806864},"sp":{"value":6357806720},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551556204},"far":{"value":0}}},{"id":15979456,"name":"browser","threadState":{"x":[{"value":14},{"value":105553131817984},{"value":73896},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":5077801040},{"value":2},{"value":0},{"value":2},{"value":0},{"value":0},{"value":0},{"value":365037860421632},{"value":18446744073709551580},{"value":8154351056},{"value":0},{"value":5077801280},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":4372462436},"cpsr":{"value":1610616832},"fp":{"value":6358380304},"sp":{"value":6358380288},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551541744},"far":{"value":0}},"frames":[{"imageOffset":6128,"imageIndex":71},{"imageOffset":59526900,"symbol":"ableton::live_library::AsyncLibraryHub::Impl::workerThreadMain(ableton::live_library::AsyncLibraryHub::Impl*)","symbolLocation":388,"imageIndex":70},{"imageOffset":59529140,"imageIndex":70},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979457,"frames":[{"imageOffset":31168,"imageIndex":71},{"imageOffset":13221164,"imageIndex":70},{"imageOffset":13220528,"imageIndex":70},{"imageOffset":13246684,"imageIndex":70},{"imageOffset":13246504,"imageIndex":70},{"imageOffset":13246256,"imageIndex":70},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}],"threadState":{"x":[{"value":4},{"value":0},{"value":0},{"value":6358948032},{"value":128},{"value":6358948000},{"value":105553131582040},{"value":105553131582072},{"value":5077814208},{"value":2},{"value":0},{"value":2},{"value":24000000},{"value":1579},{"value":1734313084541090},{"value":125},{"value":363},{"value":8154362400},{"value":0},{"value":6358953520},{"value":1},{"value":0},{"value":5077814168},{"value":5077814112},{"value":6358953520},{"value":5077828816},{"value":5077828816},{"value":1},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":4322962560},"cpsr":{"value":1610616832},"fp":{"value":6358953248},"sp":{"value":6358947936},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551566784},"far":{"value":0}}},{"id":15979463,"name":"com.apple.NSEventThread","threadState":{"x":[{"value":268451845},{"value":21592279046},{"value":8589934592},{"value":527795646103552},{"value":0},{"value":527795646103552},{"value":2},{"value":4294967295},{"value":18446744073709550527},{"value":122887},{"value":0},{"value":1},{"value":122887},{"value":453},{"value":0},{"value":0},{"value":18446744073709551569},{"value":8154346960},{"value":0},{"value":4294967295},{"value":2},{"value":527795646103552},{"value":0},{"value":527795646103552},{"value":6360670312},{"value":8589934592},{"value":21592279046},{"value":21592279046},{"value":4412409862,"symbolLocation":262630,"symbol":"NLomPathUtils::KTracksStr"}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6551616752},"cpsr":{"value":4096},"fp":{"value":6360670160},"sp":{"value":6360670080},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551541876},"far":{"value":0}},"frames":[{"imageOffset":6260,"imageIndex":71},{"imageOffset":42160,"imageIndex":71},{"imageOffset":7160,"imageIndex":71},{"imageOffset":515060,"imageIndex":81},{"imageOffset":509116,"imageIndex":81},{"imageOffset":506284,"imageIndex":81},{"imageOffset":1455376,"imageIndex":74},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979544,"name":"AudioCalc","threadState":{"x":[{"value":14},{"value":4326450408},{"value":6159412544},{"value":68719460488},{"value":5287564416},{"value":128},{"value":0},{"value":5287516176},{"value":1},{"value":2},{"value":1},{"value":6159412584},{"value":0},{"value":64},{"value":1},{"value":4984523776},{"value":18446744073709551580},{"value":4},{"value":0},{"value":105553176370032},{"value":4418057368},{"value":4418057365},{"value":1},{"value":4418056192},{"value":4418057364},{"value":4418056192},{"value":8},{"value":4416856720},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":4326450440},"cpsr":{"value":1610616832},"fp":{"value":6159412736},"sp":{"value":6159412720},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551541744},"far":{"value":0}},"frames":[{"imageOffset":6128,"imageIndex":71},{"imageOffset":25296680,"imageIndex":70},{"imageOffset":16779804,"imageIndex":70},{"imageOffset":16800048,"imageIndex":70},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979545,"name":"AudioCalc","threadState":{"x":[{"value":14},{"value":4326450408},{"value":6161132864},{"value":68719460488},{"value":5153624464},{"value":294},{"value":128},{"value":2048},{"value":1},{"value":3},{"value":2},{"value":6161132904},{"value":0},{"value":64},{"value":2},{"value":4984524032},{"value":18446744073709551580},{"value":1},{"value":0},{"value":105553176368496},{"value":4418057368},{"value":4418057365},{"value":2},{"value":4418056192},{"value":4418057364},{"value":4418056192},{"value":16},{"value":4416856720},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":4326450440},"cpsr":{"value":1610616832},"fp":{"value":6161133056},"sp":{"value":6161133040},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551541744},"far":{"value":0}},"frames":[{"imageOffset":6128,"imageIndex":71},{"imageOffset":25296680,"imageIndex":70},{"imageOffset":16779804,"imageIndex":70},{"imageOffset":16800048,"imageIndex":70},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979546,"name":"AudioCalc","threadState":{"x":[{"value":14},{"value":4326450408},{"value":6161706304},{"value":68719460488},{"value":5153625696},{"value":283},{"value":0},{"value":2272},{"value":1},{"value":3},{"value":2},{"value":6161706344},{"value":0},{"value":64},{"value":2},{"value":4984524032},{"value":18446744073709551580},{"value":1},{"value":0},{"value":105553176370048},{"value":4418057368},{"value":4418057365},{"value":3},{"value":4418056192},{"value":4418057364},{"value":4418056192},{"value":24},{"value":4416856720},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":4326450440},"cpsr":{"value":1610616832},"fp":{"value":6161706496},"sp":{"value":6161706480},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551541744},"far":{"value":0}},"frames":[{"imageOffset":6128,"imageIndex":71},{"imageOffset":25296680,"imageIndex":70},{"imageOffset":16779804,"imageIndex":70},{"imageOffset":16800048,"imageIndex":70},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979547,"name":"com.apple.audio.IOThread.client","threadState":{"x":[{"value":268451845},{"value":17179869187},{"value":103079215123},{"value":104211},{"value":4458176053248},{"value":276059022950400},{"value":32},{"value":0},{"value":18446744073709550527},{"value":64275},{"value":1038},{"value":1},{"value":64275},{"value":64},{"value":64},{"value":2},{"value":18446744073709551569},{"value":8154346960},{"value":0},{"value":0},{"value":32},{"value":276059022950400},{"value":4458176053248},{"value":104211},{"value":6162279632},{"value":103079215123},{"value":17179869187},{"value":17179869187},{"value":3}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6551616752},"cpsr":{"value":536875008},"fp":{"value":6162279296},"sp":{"value":6162279216},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551541876},"far":{"value":0}},"frames":[{"imageOffset":6260,"imageIndex":71},{"imageOffset":42160,"imageIndex":71},{"imageOffset":7160,"imageIndex":71},{"imageOffset":3226784,"imageIndex":82},{"imageOffset":2009988,"imageIndex":82},{"imageOffset":2003888,"imageIndex":82},{"imageOffset":3573092,"imageIndex":82},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979586,"frames":[{"imageOffset":7720,"imageIndex":77}],"threadState":{"x":[{"value":6162853888},{"value":112387},{"value":6162317312},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6162853888},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551785000},"far":{"value":0}}},{"id":15979587,"frames":[{"imageOffset":7720,"imageIndex":77}],"threadState":{"x":[{"value":6163427328},{"value":105731},{"value":6162890752},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6163427328},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551785000},"far":{"value":0}}},{"id":15979588,"frames":[{"imageOffset":7720,"imageIndex":77}],"threadState":{"x":[{"value":6164000768},{"value":105987},{"value":6163464192},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6164000768},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551785000},"far":{"value":0}}},{"id":15979609,"frames":[{"imageOffset":20588,"imageIndex":71},{"imageOffset":79216,"imageIndex":80},{"imageOffset":2295556,"imageIndex":59},{"imageOffset":2312248,"imageIndex":59},{"imageOffset":2312080,"imageIndex":59},{"imageOffset":2311900,"imageIndex":59},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}],"threadState":{"x":[{"value":260},{"value":0},{"value":256},{"value":0},{"value":0},{"value":160},{"value":1500},{"value":0},{"value":6360099688},{"value":0},{"value":5293275232},{"value":2},{"value":0},{"value":0},{"value":0},{"value":0},{"value":305},{"value":8154362616},{"value":0},{"value":5293275208},{"value":5293275384},{"value":6360101088},{"value":0},{"value":1500},{"value":256},{"value":257},{"value":512},{"value":5563077120},{"value":1}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6551807484},"cpsr":{"value":1610616832},"fp":{"value":6360099808},"sp":{"value":6360099664},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551556204},"far":{"value":0}}},{"id":15979621,"frames":[{"imageOffset":20588,"imageIndex":71},{"imageOffset":79216,"imageIndex":80},{"imageOffset":8347668,"imageIndex":57},{"imageOffset":8346620,"imageIndex":57},{"imageOffset":8346340,"imageIndex":57},{"imageOffset":8345860,"imageIndex":57},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}],"threadState":{"x":[{"value":260},{"value":0},{"value":40448},{"value":0},{"value":0},{"value":160},{"value":9},{"value":999999958},{"value":6411283592},{"value":0},{"value":4742316928},{"value":3298534884098},{"value":768},{"value":0},{"value":768},{"value":3298534884096},{"value":305},{"value":8154362616},{"value":0},{"value":4742316904},{"value":4742316968},{"value":6411284704},{"value":999999958},{"value":9},{"value":40448},{"value":40449},{"value":40704},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6551807484},"cpsr":{"value":1610616832},"fp":{"value":6411283712},"sp":{"value":6411283568},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551556204},"far":{"value":0}}},{"id":15979625,"name":"timer","threadState":{"x":[{"value":260},{"value":0},{"value":256},{"value":0},{"value":0},{"value":160},{"value":5},{"value":0},{"value":769},{"value":0},{"value":105553153806936},{"value":2},{"value":0},{"value":0},{"value":0},{"value":0},{"value":305},{"value":8154362616},{"value":0},{"value":105553153806912},{"value":105553172980784},{"value":1},{"value":0},{"value":5},{"value":256},{"value":769},{"value":1024},{"value":4662219572839972864},{"value":6406389760}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6551807528},"cpsr":{"value":2684358656},"fp":{"value":6411857616},"sp":{"value":6411857472},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551556204},"far":{"value":0}},"frames":[{"imageOffset":20588,"imageIndex":71},{"imageOffset":3138296,"imageIndex":57},{"imageOffset":3372948,"imageIndex":57},{"imageOffset":3137052,"imageIndex":57},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979659,"name":"JUCE Timer","threadState":{"x":[{"value":260},{"value":0},{"value":106240},{"value":0},{"value":0},{"value":160},{"value":0},{"value":299998917},{"value":6438989272},{"value":0},{"value":5046533688},{"value":8796093024258},{"value":2048},{"value":0},{"value":2048},{"value":8796093024256},{"value":305},{"value":8154362616},{"value":0},{"value":5046533664},{"value":5046533728},{"value":6438990048},{"value":299998917},{"value":0},{"value":106240},{"value":106241},{"value":106496},{"value":6406094848},{"value":4294967295}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6551807484},"cpsr":{"value":1610616832},"fp":{"value":6438989392},"sp":{"value":6438989248},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551556204},"far":{"value":0}},"frames":[{"imageOffset":20588,"imageIndex":71},{"imageOffset":79216,"imageIndex":80},{"imageOffset":6320072,"imageIndex":57},{"imageOffset":6522588,"imageIndex":57},{"imageOffset":6322884,"imageIndex":57},{"imageOffset":6458792,"imageIndex":57},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979660,"name":"tcp_listener","threadState":{"x":[{"value":4},{"value":0},{"value":6439562788},{"value":6439563357},{"value":6404887113},{"value":12},{"value":0},{"value":0},{"value":105553202896332},{"value":8002942600},{"value":11520},{"value":3821228268},{"value":2043},{"value":2045},{"value":3823327473},{"value":241},{"value":30},{"value":8154365328},{"value":0},{"value":105553283475024},{"value":105553202896320},{"value":6404887248},{"value":6365877480},{"value":6404887302},{"value":6404887194},{"value":0},{"value":0},{"value":6406426624},{"value":6406090752}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6368097644},"cpsr":{"value":1610616832},"fp":{"value":6439562960},"sp":{"value":6439562768},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551577024},"far":{"value":0}},"frames":[{"imageOffset":41408,"imageIndex":71},{"imageOffset":4035608,"imageIndex":57},{"imageOffset":3137052,"imageIndex":57},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979701,"name":"CVDisplayLink","threadState":{"x":[{"value":260},{"value":0},{"value":256},{"value":0},{"value":0},{"value":65704},{"value":0},{"value":12727167},{"value":174337},{"value":0},{"value":5565184592},{"value":1099511628034},{"value":256},{"value":0},{"value":256},{"value":1099511628032},{"value":305},{"value":8154362616},{"value":0},{"value":5565184568},{"value":5565184632},{"value":1},{"value":12727167},{"value":0},{"value":256},{"value":174337},{"value":174592},{"value":7985881648},{"value":7985883544}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6551807528},"cpsr":{"value":2684358656},"fp":{"value":6361247152},"sp":{"value":6361247008},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551556204},"far":{"value":0}},"frames":[{"imageOffset":20588,"imageIndex":71},{"imageOffset":13608,"imageIndex":83},{"imageOffset":9716,"imageIndex":83},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979800,"name":"JavaScriptCore libpas scavenger","threadState":{"x":[{"value":260},{"value":0},{"value":13568},{"value":0},{"value":0},{"value":160},{"value":0},{"value":99999048},{"value":6431583896},{"value":0},{"value":12053424152},{"value":2},{"value":0},{"value":0},{"value":0},{"value":0},{"value":305},{"value":8154362616},{"value":0},{"value":12053424128},{"value":12053424192},{"value":6431584480},{"value":99999048},{"value":0},{"value":13568},{"value":13569},{"value":13824},{"value":7988580352},{"value":7988580352}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6551807484},"cpsr":{"value":1610616832},"fp":{"value":6431584016},"sp":{"value":6431583872},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551556204},"far":{"value":0}},"frames":[{"imageOffset":20588,"imageIndex":71},{"imageOffset":22516876,"imageIndex":84},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979802,"name":"com.apple.coreanimation.render-server","threadState":{"x":[{"value":268451845},{"value":21525170190},{"value":8589934592},{"value":0},{"value":0},{"value":735586163884032},{"value":2},{"value":0},{"value":18446744073709550527},{"value":0},{"value":0},{"value":1},{"value":171267},{"value":4294967210},{"value":2043},{"value":3343036411},{"value":18446744073709551569},{"value":85},{"value":0},{"value":0},{"value":2},{"value":735586163884032},{"value":0},{"value":0},{"value":6432664248},{"value":8589934592},{"value":21525170190},{"value":21525170190},{"value":4345301006}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6551616752},"cpsr":{"value":4096},"fp":{"value":6432664096},"sp":{"value":6432664016},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551541876},"far":{"value":0}},"frames":[{"imageOffset":6260,"imageIndex":71},{"imageOffset":42160,"imageIndex":71},{"imageOffset":7160,"imageIndex":71},{"imageOffset":294820,"imageIndex":85},{"imageOffset":294260,"imageIndex":85},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979806,"name":"WebCore: Scrolling","threadState":{"x":[{"value":268451845},{"value":21592279046},{"value":8589934592},{"value":586052582506496},{"value":0},{"value":586052582506496},{"value":2},{"value":4294967295},{"value":18446744073709550527},{"value":136451},{"value":0},{"value":1},{"value":136451},{"value":22516},{"value":0},{"value":0},{"value":18446744073709551569},{"value":8154346960},{"value":0},{"value":4294967295},{"value":2},{"value":586052582506496},{"value":0},{"value":586052582506496},{"value":6433251288},{"value":8589934592},{"value":21592279046},{"value":21592279046},{"value":4412409862,"symbolLocation":262630,"symbol":"NLomPathUtils::KTracksStr"}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6551616752},"cpsr":{"value":4096},"fp":{"value":6433251136},"sp":{"value":6433251056},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551541876},"far":{"value":0}},"frames":[{"imageOffset":6260,"imageIndex":71},{"imageOffset":42160,"imageIndex":71},{"imageOffset":7160,"imageIndex":71},{"imageOffset":515060,"imageIndex":81},{"imageOffset":509116,"imageIndex":81},{"imageOffset":506284,"imageIndex":81},{"imageOffset":1021700,"imageIndex":81},{"imageOffset":1647780,"imageIndex":84},{"imageOffset":1763376,"imageIndex":84},{"imageOffset":39652,"imageIndex":84},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15979884,"frames":[{"imageOffset":7720,"imageIndex":77}],"threadState":{"x":[{"value":6437711872},{"value":133163},{"value":6437175296},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6437711872},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551785000},"far":{"value":0}}},{"id":15979885,"frames":[{"imageOffset":7720,"imageIndex":77}],"threadState":{"x":[{"value":6438285312},{"value":139279},{"value":6437748736},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6438285312},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551785000},"far":{"value":0}}},{"id":15979886,"frames":[{"imageOffset":7720,"imageIndex":77}],"threadState":{"x":[{"value":6440136704},{"value":0},{"value":6439600128},{"value":0},{"value":278532},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6440136704},"esr":{"value":0,"description":" Address size fault"},"pc":{"value":6551785000},"far":{"value":0}}},{"id":15980023,"name":"JUCE v8.0.4: Timer","threadState":{"x":[{"value":260},{"value":0},{"value":0},{"value":0},{"value":0},{"value":160},{"value":0},{"value":99997167},{"value":6158838488},{"value":0},{"value":5554466080},{"value":2},{"value":0},{"value":0},{"value":0},{"value":0},{"value":305},{"value":8154362616},{"value":0},{"value":5554466056},{"value":5554466120},{"value":6158840032},{"value":99997167},{"value":0},{"value":0},{"value":1},{"value":256},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6551807484},"cpsr":{"value":1610616832},"fp":{"value":6158838608},"sp":{"value":6158838464},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551556204},"far":{"value":0}},"frames":[{"imageOffset":20588,"imageIndex":71},{"imageOffset":79216,"imageIndex":80},{"imageOffset":8245120,"symbol":"std::__1::cv_status std::__1::condition_variable::wait_for<long long, std::__1::ratio<1l, 1000000000l>>(std::__1::unique_lock<std::__1::mutex>&, std::__1::chrono::duration<long long, std::__1::ratio<1l, 1000000000l>> const&)","symbolLocation":336,"imageIndex":3},{"imageOffset":8244220,"symbol":"void std::__1::condition_variable::__do_timed_wait[abi:ue170006]<std::__1::chrono::steady_clock>(std::__1::unique_lock<std::__1::mutex>&, std::__1::chrono::time_point<std::__1::chrono::steady_clock, std::__1::chrono::duration<long long, std::__1::ratio<1l, 1000000000l>>>)","symbolLocation":104,"imageIndex":3},{"imageOffset":8443004,"symbol":"std::__1::cv_status std::__1::condition_variable::wait_until<std::__1::chrono::steady_clock, std::__1::chrono::duration<double, std::__1::ratio<1l, 1000000000l>>>(std::__1::unique_lock<std::__1::mutex>&, std::__1::chrono::time_point<std::__1::chrono::steady_clock, std::__1::chrono::duration<double, std::__1::ratio<1l, 1000000000l>>> const&)","symbolLocation":132,"imageIndex":3},{"imageOffset":8442648,"symbol":"bool std::__1::condition_variable::wait_until<std::__1::chrono::steady_clock, std::__1::chrono::duration<double, std::__1::ratio<1l, 1000000000l>>, juce::WaitableEvent::wait(double) const::$_29>(std::__1::unique_lock<std::__1::mutex>&, std::__1::chrono::time_point<std::__1::chrono::steady_clock, std::__1::chrono::duration<double, std::__1::ratio<1l, 1000000000l>>> const&, juce::WaitableEvent::wait(double) const::$_29)","symbolLocation":72,"imageIndex":3},{"imageOffset":8028224,"symbol":"bool std::__1::condition_variable::wait_for[abi:ue170006]<double, std::__1::ratio<1l, 1000l>, juce::WaitableEvent::wait(double) const::$_29>(std::__1::unique_lock<std::__1::mutex>&, std::__1::chrono::duration<double, std::__1::ratio<1l, 1000l>> const&, juce::WaitableEvent::wait(double) const::$_29)","symbolLocation":100,"imageIndex":3},{"imageOffset":7840368,"symbol":"juce::WaitableEvent::wait(double) const","symbolLocation":196,"imageIndex":3},{"imageOffset":7847360,"symbol":"juce::Thread::wait(double) const","symbolLocation":36,"imageIndex":3},{"imageOffset":7440808,"symbol":"juce::Timer::TimerThread::run()","symbolLocation":424,"imageIndex":3},{"imageOffset":7843332,"symbol":"juce::Thread::threadEntryPoint()","symbolLocation":248,"imageIndex":3},{"imageOffset":7844124,"symbol":"juce::juce_threadEntryPoint(void*)","symbolLocation":24,"imageIndex":3},{"imageOffset":8176668,"symbol":"juce::Thread::createNativeThread(juce::Thread::Priority)::$_27::operator()(void*) const","symbolLocation":148,"imageIndex":3},{"imageOffset":8176508,"symbol":"juce::Thread::createNativeThread(juce::Thread::Priority)::$_27::__invoke(void*)","symbolLocation":28,"imageIndex":3},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]},{"id":15980025,"name":"CVDisplayLink","threadState":{"x":[{"value":260},{"value":0},{"value":0},{"value":0},{"value":0},{"value":65704},{"value":0},{"value":16931958},{"value":1},{"value":0},{"value":5532975184},{"value":2},{"value":0},{"value":0},{"value":0},{"value":0},{"value":305},{"value":8154362616},{"value":0},{"value":5532975160},{"value":5532975224},{"value":1},{"value":16931958},{"value":0},{"value":0},{"value":1},{"value":256},{"value":7985881648},{"value":7985883544}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6551807528},"cpsr":{"value":2684358656},"fp":{"value":6164573616},"sp":{"value":6164573472},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6551556204},"far":{"value":0}},"frames":[{"imageOffset":20588,"imageIndex":71},{"imageOffset":13608,"imageIndex":83},{"imageOffset":9716,"imageIndex":83},{"imageOffset":28724,"imageIndex":77},{"imageOffset":7740,"imageIndex":77}]}],
+  "usedImages" : [
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6074122240,
+    "CFBundleShortVersionString" : "1.14",
+    "CFBundleIdentifier" : "com.apple.audio.units.Components",
+    "size" : 1277952,
+    "uuid" : "06275638-4d71-370d-bf96-b30a567270e1",
+    "path" : "\/System\/Library\/Components\/CoreAudio.component\/Contents\/MacOS\/CoreAudio",
+    "name" : "CoreAudio",
+    "CFBundleVersion" : "1.14"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 11328028672,
+    "CFBundleShortVersionString" : "7.0",
+    "CFBundleIdentifier" : "com.apple.audio.codecs.Components",
+    "size" : 9289728,
+    "uuid" : "8479fc6b-3097-3c2f-b9ac-e1ece564d865",
+    "path" : "\/System\/Library\/Components\/AudioCodecs.component\/Contents\/MacOS\/AudioCodecs",
+    "name" : "AudioCodecs",
+    "CFBundleVersion" : "7.0"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4747280384,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.apple.AppleMetalOpenGLRenderer",
+    "size" : 442368,
+    "uuid" : "41cb4d99-6a07-366a-9e97-d047ce10daa2",
+    "path" : "\/System\/Library\/Extensions\/AppleMetalOpenGLRenderer.bundle\/Contents\/MacOS\/AppleMetalOpenGLRenderer",
+    "name" : "AppleMetalOpenGLRenderer",
+    "CFBundleVersion" : "1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 12016418816,
+    "CFBundleShortVersionString" : "0.0.1",
+    "CFBundleIdentifier" : "com.neighbours.SamplerTemplate",
+    "size" : 15990784,
+    "uuid" : "9b2a9cf1-509f-36ea-86c6-1a672a44c3f2",
+    "path" : "\/Users\/USER\/Library\/Audio\/Plug-Ins\/VST3\/SamplerTemplate.vst3\/Contents\/MacOS\/SamplerTemplate",
+    "name" : "SamplerTemplate",
+    "CFBundleVersion" : "0.0.1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 6063030272,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.jsbuffer",
+    "size" : 16384,
+    "uuid" : "f58317fa-d961-31fc-8bec-6841fa6a6ae7",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/jsextensions\/msp\/jsbuffer.mxo\/Contents\/MacOS\/jsbuffer",
+    "name" : "jsbuffer",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 6062948352,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.jsxmlhttprequest",
+    "size" : 16384,
+    "uuid" : "205cd819-8983-3143-894a-52349ce3be69",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/jsextensions\/max\/jsxmlhttprequest.mxo\/Contents\/MacOS\/jsxmlhttprequest",
+    "name" : "jsxmlhttprequest",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 6062866432,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.jstrigger",
+    "size" : 16384,
+    "uuid" : "b7158d23-65fa-364a-b793-da4a2c95c872",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/jsextensions\/max\/jstrigger.mxo\/Contents\/MacOS\/jstrigger",
+    "name" : "jstrigger",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 6060670976,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.jssqlresult",
+    "size" : 16384,
+    "uuid" : "1f69f97f-b828-3252-b772-19888afd84e0",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/jsextensions\/max\/jssqlresult.mxo\/Contents\/MacOS\/jssqlresult",
+    "name" : "jssqlresult",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5980930048,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.jssqlite",
+    "size" : 16384,
+    "uuid" : "05b2b551-6401-3dbe-aed0-57dde4ce5e52",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/jsextensions\/max\/jssqlite.mxo\/Contents\/MacOS\/jssqlite",
+    "name" : "jssqlite",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5980848128,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.jssnapshotapi",
+    "size" : 16384,
+    "uuid" : "542fcd99-5941-3540-bd3d-a1206b525616",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/jsextensions\/max\/jssnapshotapi.mxo\/Contents\/MacOS\/jssnapshotapi",
+    "name" : "jssnapshotapi",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5980340224,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.jsrx256",
+    "size" : 16384,
+    "uuid" : "64bd1685-e9e7-35bc-b3ee-aea839aa1704",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/jsextensions\/max\/jsrx256.mxo\/Contents\/MacOS\/jsrx256",
+    "name" : "jsrx256",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5980258304,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.jsrequire",
+    "size" : 16384,
+    "uuid" : "291774aa-834c-3433-b7a1-275ab205323b",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/jsextensions\/max\/jsrequire.mxo\/Contents\/MacOS\/jsrequire",
+    "name" : "jsrequire",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5980176384,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.jsparamlistener",
+    "size" : 16384,
+    "uuid" : "cb453e30-1161-338d-9684-99eb9e3c2548",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/jsextensions\/max\/jsparamlistener.mxo\/Contents\/MacOS\/jsparamlistener",
+    "name" : "jsparamlistener",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5980094464,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.jsparaminfoprovider",
+    "size" : 16384,
+    "uuid" : "dbbe6cb0-fab0-35f0-8f73-0082f8ba12c9",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/jsextensions\/max\/jsparaminfoprovider.mxo\/Contents\/MacOS\/jsparaminfoprovider",
+    "name" : "jsparaminfoprovider",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5980012544,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.jsmaxobjlistener",
+    "size" : 16384,
+    "uuid" : "afedd03f-d004-3163-a811-334d098d4e8e",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/jsextensions\/max\/jsmaxobjlistener.mxo\/Contents\/MacOS\/jsmaxobjlistener",
+    "name" : "jsmaxobjlistener",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5979930624,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.jsfolder",
+    "size" : 16384,
+    "uuid" : "bf13f0a7-e65a-3329-b7e2-355d1126075a",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/jsextensions\/max\/jsfolder.mxo\/Contents\/MacOS\/jsfolder",
+    "name" : "jsfolder",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5976391680,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.jsliveapi",
+    "size" : 32768,
+    "uuid" : "8e76b684-619a-3256-bb6b-718cbdd480d1",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/jsextensions\/m4l\/jsliveapi.mxo\/Contents\/MacOS\/jsliveapi",
+    "name" : "jsliveapi",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5964201984,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.jsjitter",
+    "size" : 32768,
+    "uuid" : "0d09c3b5-bf0f-3952-95a4-c7989a8dfd92",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/jsextensions\/jitter\/jsjitter.mxo\/Contents\/MacOS\/jsjitter",
+    "name" : "jsjitter",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5978767360,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.js",
+    "size" : 131072,
+    "uuid" : "efa9b76b-75e7-3f06-b562-1cd6478f7e21",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/externals\/max\/js.mxo\/Contents\/MacOS\/js",
+    "name" : "js",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5514412032,
+    "size" : 16384,
+    "uuid" : "23033907-3fdd-36d6-bdf9-fd03afa37684",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/Frameworks\/libmozjs185.dylib",
+    "name" : "libmozjs185.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5636866048,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.comment",
+    "size" : 32768,
+    "uuid" : "12d0c903-22d0-3980-b982-0ce2561e305e",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/externals\/max\/comment.mxo\/Contents\/MacOS\/comment",
+    "name" : "comment",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 6080905216,
+    "CFBundleIdentifier" : "com.cycling74.rnbopatcher",
+    "size" : 3833856,
+    "uuid" : "adc5c9ea-0887-395f-833d-ca0ef837ecea",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/packages\/RNBO\/extensions\/rnbopatcher.mxo\/Contents\/MacOS\/rnbopatcher",
+    "name" : "rnbopatcher",
+    "CFBundleVersion" : "1.2.6"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5637029888,
+    "CFBundleShortVersionString" : "8.2.0",
+    "CFBundleIdentifier" : "com.acme.${PRODUCT_NAME:rfc1034identifier}",
+    "size" : 16384,
+    "uuid" : "11e2f200-6641-3c87-b652-6fdc3b7afca1",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/packages\/max-mxj\/extensions\/mxj_safe.mxo\/Contents\/MacOS\/mxj_safe",
+    "name" : "mxj_safe",
+    "CFBundleVersion" : "8.2.0"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 6065192960,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.gl3",
+    "size" : 1212416,
+    "uuid" : "95beb1b2-dc17-3fd1-89a0-cb6a3dbebf5a",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/packages\/Jitter Tools\/extensions\/gl3.mxo\/Contents\/MacOS\/gl3",
+    "name" : "gl3",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5525913600,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.probe.scope-tilde",
+    "size" : 16384,
+    "uuid" : "6b675d8f-31bf-3f23-9d8a-b6f5ccfb0a82",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/msp\/probe.scope~.mxo\/Contents\/MacOS\/probe.scope~",
+    "name" : "probe.scope~",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5518442496,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.probe.meter-tilde",
+    "size" : 16384,
+    "uuid" : "d3fb6db1-78e5-3c90-9616-3c7f1034e4a1",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/msp\/probe.meter~.mxo\/Contents\/MacOS\/probe.meter~",
+    "name" : "probe.meter~",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5367578624,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.probe.history-tilde",
+    "size" : 16384,
+    "uuid" : "590d2aa0-67af-36a3-9c28-ab19a8344870",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/msp\/probe.history~.mxo\/Contents\/MacOS\/probe.history~",
+    "name" : "probe.history~",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5976276992,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.polybuffer",
+    "size" : 49152,
+    "uuid" : "7fb976df-2cba-3dd2-b872-c51635248088",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/msp\/polybuffer.mxo\/Contents\/MacOS\/polybuffer",
+    "name" : "polybuffer",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5518311424,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.max-tilde",
+    "size" : 49152,
+    "uuid" : "fc1750cf-bcbf-3289-ad4f-6092f1c62e78",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/msp\/max~.mxo\/Contents\/MacOS\/max~",
+    "name" : "max~",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5367496704,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.zoomer",
+    "size" : 16384,
+    "uuid" : "3bf1b8a0-5c1c-31c1-9007-b9e3baea5826",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/zoomer.mxo\/Contents\/MacOS\/zoomer",
+    "name" : "zoomer",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5980487680,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.yaml",
+    "size" : 196608,
+    "uuid" : "58cc1dab-00af-3b46-8ce6-654be751bcc4",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/yaml.mxo\/Contents\/MacOS\/yaml",
+    "name" : "yaml",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5521489920,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.synophrys",
+    "size" : 180224,
+    "uuid" : "fe928227-7619-3008-8ba5-560ae7e2e39e",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/synophrys.mxo\/Contents\/MacOS\/synophrys",
+    "name" : "synophrys",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5977423872,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.sqlite",
+    "size" : 1163264,
+    "uuid" : "ee2caf6b-eb13-3a6e-8730-2bc7c15abe82",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/sqlite.mxo\/Contents\/MacOS\/sqlite",
+    "name" : "sqlite",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5342527488,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.setplugpath",
+    "size" : 32768,
+    "uuid" : "54adbd9a-4125-3976-be4f-f793dd79b3ca",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/setplugpath.mxo\/Contents\/MacOS\/setplugpath",
+    "name" : "setplugpath",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5315133440,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.querylib",
+    "size" : 32768,
+    "uuid" : "b4cc3976-f875-3f2a-a99c-d67ac23f6fcf",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/querylib.mxo\/Contents\/MacOS\/querylib",
+    "name" : "querylib",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5315018752,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.pianoroll",
+    "size" : 49152,
+    "uuid" : "ae43e3ff-6d8b-33ed-8a38-488be7f9566d",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/pianoroll.mxo\/Contents\/MacOS\/pianoroll",
+    "name" : "pianoroll",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5342429184,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.palblocks",
+    "size" : 32768,
+    "uuid" : "c68e6a5f-80bd-3662-b837-cfd8275a7342",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/palblocks.mxo\/Contents\/MacOS\/palblocks",
+    "name" : "palblocks",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5310758912,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.objectview",
+    "size" : 16384,
+    "uuid" : "49fe8b49-a629-3833-b315-6b414300a378",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/objectview.mxo\/Contents\/MacOS\/objectview",
+    "name" : "objectview",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5310595072,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.maxzlib",
+    "size" : 98304,
+    "uuid" : "6dd0952b-f5f8-30a5-b47d-2243d2d17e51",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/maxzlib.mxo\/Contents\/MacOS\/maxzlib",
+    "name" : "maxzlib",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 11945377792,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.maxxslt",
+    "size" : 33538048,
+    "uuid" : "db0f7e80-7e65-3831-b27d-051264d96efa",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/maxxslt.mxo\/Contents\/MacOS\/maxxslt",
+    "name" : "maxxslt",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5979013120,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.maxurl",
+    "size" : 589824,
+    "uuid" : "38529482-7204-37b5-9000-d2b66ae5a25b",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/maxurl.mxo\/Contents\/MacOS\/maxurl",
+    "name" : "maxurl",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5989466112,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.maxclang",
+    "size" : 51937280,
+    "uuid" : "ccac52e7-6cba-3f1f-8e45-275ee2bcfc98",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/maxclang.mxo\/Contents\/MacOS\/maxclang",
+    "name" : "maxclang",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5974851584,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.genpatcher",
+    "size" : 966656,
+    "uuid" : "2002e5f3-6349-38cf-8634-a4927778c6a6",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/genpatcher.mxo\/Contents\/MacOS\/genpatcher",
+    "name" : "genpatcher",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5309104128,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.debugwindow",
+    "size" : 16384,
+    "uuid" : "c05f164c-2898-3ee9-bd20-1112cb226b5d",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/debugwindow.mxo\/Contents\/MacOS\/debugwindow",
+    "name" : "debugwindow",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5308940288,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.autohelp",
+    "size" : 32768,
+    "uuid" : "6a85940d-a6c3-3c7b-83ad-a9594e2a516e",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/autohelp.mxo\/Contents\/MacOS\/autohelp",
+    "name" : "autohelp",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5636521984,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.live.guilib",
+    "size" : 229376,
+    "uuid" : "6469eba2-ef77-3610-af18-d3d2f802bcc9",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/m4l\/live.guilib.mxo\/Contents\/MacOS\/live.guilib",
+    "name" : "live.guilib",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5976555520,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.sketch",
+    "size" : 671744,
+    "uuid" : "95003baf-b81a-3876-8259-c53c3762678f",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/jitter\/sketch.mxo\/Contents\/MacOS\/sketch",
+    "name" : "sketch",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5962498048,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.gl2",
+    "size" : 1277952,
+    "uuid" : "025967eb-7adf-3fe5-a94a-4d980d1e81f6",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/jitter\/gl2.mxo\/Contents\/MacOS\/gl2",
+    "name" : "gl2",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5309054976,
+    "CFBundleShortVersionString" : "1.7.0",
+    "CFBundleIdentifier" : "com.cycling74.JitterAPI",
+    "size" : 16384,
+    "uuid" : "fca1e8d8-335d-3b5e-b9d5-51e338c21f78",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/Frameworks\/JitterAPI.framework\/Versions\/A\/JitterAPI",
+    "name" : "JitterAPI",
+    "CFBundleVersion" : "1.7.0"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5304631296,
+    "CFBundleShortVersionString" : "8.6.5 (666)",
+    "CFBundleIdentifier" : "com.cycling74.fseventwatcher",
+    "size" : 16384,
+    "uuid" : "4282c91c-6fc6-3f43-b7a8-babff2559125",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/extensions\/max\/fseventwatcher.mxo\/Contents\/MacOS\/fseventwatcher",
+    "name" : "fseventwatcher",
+    "CFBundleVersion" : "8.6.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5304139776,
+    "CFBundleShortVersionString" : "8.6.5 (795b32eda25)",
+    "CFBundleIdentifier" : "com.cycling74.patcher",
+    "size" : 180224,
+    "uuid" : "9f6e3a55-6455-36b3-b506-8fc272f3f187",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/support\/patcher.bundle\/Contents\/MacOS\/patcher",
+    "name" : "patcher",
+    "CFBundleVersion" : "795b32eda25"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5282676736,
+    "CFBundleIdentifier" : "com.cycling74.MaxAudioAPI",
+    "size" : 16384,
+    "uuid" : "2ffb36f6-621f-3889-aaa1-455d15a13a26",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/Frameworks\/MaxAudioAPI.framework\/Versions\/A\/MaxAudioAPI",
+    "name" : "MaxAudioAPI",
+    "CFBundleVersion" : "1.0"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5631279104,
+    "size" : 1310720,
+    "uuid" : "919cbda1-301b-36a8-877b-dd0e4552c71c",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Frameworks\/libmozjs185_impl.dylib",
+    "name" : "libmozjs185_impl.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5523898368,
+    "CFBundleShortVersionString" : "1.7.0",
+    "CFBundleIdentifier" : "com.cycling74.JitterAPIImpl",
+    "size" : 1130496,
+    "uuid" : "ef98e1f6-18cb-3230-b17c-f20a95273106",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Frameworks\/JitterAPIImpl.framework\/Versions\/A\/JitterAPIImpl",
+    "name" : "JitterAPIImpl",
+    "CFBundleVersion" : "1.7.0"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5256429568,
+    "CFBundleIdentifier" : "com.cycling74.MaxLua",
+    "size" : 16384,
+    "uuid" : "367ebc1f-3e15-3478-9fef-8a322619ea89",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/Frameworks\/MaxLua.framework\/Versions\/A\/MaxLua",
+    "name" : "MaxLua",
+    "CFBundleVersion" : "1.0"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5314265088,
+    "CFBundleIdentifier" : "com.cycling74.MaxLuaImpl",
+    "size" : 573440,
+    "uuid" : "8128e9dd-262c-399d-bc7d-bfaf065c34b8",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Frameworks\/MaxLuaImpl.framework\/Versions\/A\/MaxLuaImpl",
+    "name" : "MaxLuaImpl",
+    "CFBundleVersion" : "1.0"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5309906944,
+    "CFBundleIdentifier" : "com.cycling74.MaxAudioAPIImpl",
+    "size" : 475136,
+    "uuid" : "1bcac3d1-6558-3aff-ba69-250bd451dde6",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Frameworks\/MaxAudioAPIImpl.framework\/Versions\/A\/MaxAudioAPIImpl",
+    "name" : "MaxAudioAPIImpl",
+    "CFBundleVersion" : "1.0"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 6361841664,
+    "CFBundleShortVersionString" : " (666)",
+    "CFBundleIdentifier" : "com.cycling74.MaxPlugLib",
+    "size" : 43499520,
+    "uuid" : "a3aba8f3-d041-3e9c-b91d-1c1fe4ae9988",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/support\/MaxPlugLib.bundle\/Contents\/MacOS\/MaxPlugLib",
+    "name" : "MaxPlugLib",
+    "CFBundleVersion" : ""
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5282578432,
+    "CFBundleShortVersionString" : "1.01",
+    "CFBundleIdentifier" : "com.cycling74.maxchecker",
+    "size" : 32768,
+    "uuid" : "b6dc3808-8b85-3506-9059-6c5f7cfefb00",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/App-Resources\/Max\/Max.app\/Contents\/Resources\/C74\/support\/maxchecker.bundle\/Contents\/MacOS\/maxchecker",
+    "name" : "maxchecker",
+    "CFBundleVersion" : "1.0"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5310873600,
+    "CFBundleShortVersionString" : "5.9.0 GM (b5097, edaa5278)",
+    "CFBundleIdentifier" : "com.paceap.eden.WrapPersist",
+    "size" : 3080192,
+    "uuid" : "65b1bc66-4708-3899-8775-cfdb8e295969",
+    "path" : "\/Library\/Frameworks\/PACEEdenExperience.framework\/Versions\/A\/WrapPersist.bundle\/Contents\/MacOS\/WrapPersist",
+    "name" : "WrapPersist",
+    "CFBundleVersion" : "5.9.0.5097"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5342625792,
+    "CFBundleShortVersionString" : "5.3.7.16421 Authorization: EchoBoyJr",
+    "CFBundleIdentifier" : "com.soundtoys.vst.EchoBoyJr",
+    "size" : 13533184,
+    "uuid" : "26afe112-7fe8-36cd-acb0-837922ef2331",
+    "path" : "\/Library\/Audio\/Plug-Ins\/VST\/Soundtoys\/EchoBoyJr.vst\/Contents\/MacOS\/EchoBoyJr",
+    "name" : "EchoBoyJr",
+    "CFBundleVersion" : "5.3.7.16421"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 5099913216,
+    "CFBundleShortVersionString" : "3.0",
+    "CFBundleIdentifier" : "com.apple.security.csparser",
+    "size" : 131072,
+    "uuid" : "223733db-4edb-301c-99bc-d4c647bb1ad2",
+    "path" : "\/System\/Library\/Frameworks\/Security.framework\/Versions\/A\/PlugIns\/csparser.bundle\/Contents\/MacOS\/csparser",
+    "name" : "csparser",
+    "CFBundleVersion" : "61040.61.2"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5578424320,
+    "CFBundleShortVersionString" : "0.0.1",
+    "CFBundleIdentifier" : "com.theaudioprogrammer.AcUnit",
+    "size" : 15237120,
+    "uuid" : "fad6f1b1-9998-3efd-abbd-af2b7f4f57c1",
+    "path" : "\/Users\/USER\/Library\/Audio\/Plug-Ins\/VST3\/AcUnit.vst3\/Contents\/MacOS\/AcUnit",
+    "name" : "AcUnit",
+    "CFBundleVersion" : "0.0.1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 5075271680,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.apple.icloud.drive.fileprovider.override",
+    "size" : 16384,
+    "uuid" : "75745331-d4d7-374a-b7d0-6421dff7b065",
+    "path" : "\/System\/Library\/Frameworks\/FileProvider.framework\/OverrideBundles\/iCloudDriveFileProviderOverride.bundle\/Contents\/MacOS\/iCloudDriveFileProviderOverride",
+    "name" : "iCloudDriveFileProviderOverride",
+    "CFBundleVersion" : "2461.61.2"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 5075828736,
+    "CFBundleShortVersionString" : "14.2",
+    "CFBundleIdentifier" : "com.apple.findersync.fileprovideroverride.FinderSyncCollaborationFileProviderOverride",
+    "size" : 131072,
+    "uuid" : "c03af63c-8bae-3a07-a2c9-f0758a0853ac",
+    "path" : "\/System\/Library\/Frameworks\/FileProvider.framework\/OverrideBundles\/FinderSyncCollaborationFileProviderOverride.bundle\/Contents\/MacOS\/FinderSyncCollaborationFileProviderOverride",
+    "name" : "FinderSyncCollaborationFileProviderOverride",
+    "CFBundleVersion" : "1630.2.4"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 5075173376,
+    "CFBundleShortVersionString" : "1703.61.4",
+    "CFBundleIdentifier" : "com.apple.FileProviderOverride",
+    "size" : 32768,
+    "uuid" : "7f04689c-ae98-3925-9e9a-268aa436a0cb",
+    "path" : "\/System\/Library\/Frameworks\/FileProvider.framework\/OverrideBundles\/FileProviderOverride.bundle\/Contents\/MacOS\/FileProviderOverride",
+    "name" : "FileProviderOverride",
+    "CFBundleVersion" : "1703.61.4"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4459298816,
+    "size" : 49152,
+    "uuid" : "7778e0d7-361a-378d-9438-3b2bb48c2154",
+    "path" : "\/usr\/lib\/libobjc-trampolines.dylib",
+    "name" : "libobjc-trampolines.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4459495424,
+    "size" : 1572864,
+    "uuid" : "8038ea9a-f0aa-3323-b68f-f754b5f98e85",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/Libraries\/libonnxruntime_abl.dylib",
+    "name" : "libonnxruntime_abl.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4454744064,
+    "size" : 81920,
+    "uuid" : "2b3a93c6-c899-37ba-87d2-8ec11b1d71fa",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/Libraries\/libusb-1.0.dylib",
+    "name" : "libusb-1.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4456185856,
+    "CFBundleIdentifier" : "se.propellerheads.rex.library",
+    "size" : 294912,
+    "uuid" : "ddfec8a2-ead4-3fab-9674-1be6f6e189c9",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/Frameworks\/REX Shared Library.framework\/Versions\/A\/REX Shared Library",
+    "name" : "REX Shared Library",
+    "CFBundleVersion" : "1.9.1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4309745664,
+    "CFBundleShortVersionString" : "12.1.5 (2024-12-11_18e1550166)",
+    "CFBundleIdentifier" : "com.ableton.live",
+    "size" : 97812480,
+    "uuid" : "c6f405a2-51bd-32d4-a0f1-d63f2d06bf1f",
+    "path" : "\/Applications\/Ableton Live 12 Suite.app\/Contents\/MacOS\/Live",
+    "name" : "Live",
+    "CFBundleVersion" : "12.1.5 (2024-12-11_18e1550166)"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6551535616,
+    "size" : 241664,
+    "uuid" : "ca94fc21-bc40-3b43-b65d-b87ece9e1d48",
+    "path" : "\/usr\/lib\/system\/libsystem_kernel.dylib",
+    "name" : "libsystem_kernel.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6550319104,
+    "size" : 520188,
+    "uuid" : "ab8a0a0b-9a1e-3284-9243-5a0334468ae5",
+    "path" : "\/usr\/lib\/system\/libsystem_c.dylib",
+    "name" : "libsystem_c.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6549790720,
+    "size" : 225280,
+    "uuid" : "690a8b04-8e64-3332-b5a5-56a3d5c1c43f",
+    "path" : "\/usr\/lib\/system\/libsystem_malloc.dylib",
+    "name" : "libsystem_malloc.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6611046400,
+    "CFBundleShortVersionString" : "6.9",
+    "CFBundleIdentifier" : "com.apple.AppKit",
+    "size" : 20033536,
+    "uuid" : "f3527312-e426-3f7c-b77b-2bf49d1b7c04",
+    "path" : "\/System\/Library\/Frameworks\/AppKit.framework\/Versions\/C\/AppKit",
+    "name" : "AppKit",
+    "CFBundleVersion" : "2487.30.108"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6548107264,
+    "size" : 607048,
+    "uuid" : "324e4ad9-e01f-3183-b09f-3e20b326643a",
+    "path" : "\/usr\/lib\/dyld",
+    "name" : "dyld"
+  },
+  {
+    "size" : 0,
+    "source" : "A",
+    "base" : 0,
+    "uuid" : "00000000-0000-0000-0000-000000000000"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6551777280,
+    "size" : 53236,
+    "uuid" : "a7d94c96-7b1f-3229-9bea-048d037c3292",
+    "path" : "\/usr\/lib\/system\/libsystem_pthread.dylib",
+    "name" : "libsystem_pthread.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6983335936,
+    "CFBundleShortVersionString" : "2.0",
+    "CFBundleIdentifier" : "com.apple.audio.midi.CoreMIDI",
+    "size" : 610304,
+    "uuid" : "b082b8bb-b7e7-3a3c-9e5a-144d8da94925",
+    "path" : "\/System\/Library\/Frameworks\/CoreMIDI.framework\/Versions\/A\/CoreMIDI",
+    "name" : "CoreMIDI",
+    "CFBundleVersion" : "88"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6723264512,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.apple.audio.caulk",
+    "size" : 172032,
+    "uuid" : "25e50b84-b506-3db7-9a91-3824b9b8b880",
+    "path" : "\/System\/Library\/PrivateFrameworks\/caulk.framework\/Versions\/A\/caulk",
+    "name" : "caulk"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6550839296,
+    "size" : 581624,
+    "uuid" : "375254eb-5a65-35d0-b6b4-773e6763d289",
+    "path" : "\/usr\/lib\/libc++.1.dylib",
+    "name" : "libc++.1.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6552199168,
+    "CFBundleShortVersionString" : "6.9",
+    "CFBundleIdentifier" : "com.apple.CoreFoundation",
+    "size" : 5079040,
+    "uuid" : "47e4ec09-8f6e-30a8-99d0-34024d4f8122",
+    "path" : "\/System\/Library\/Frameworks\/CoreFoundation.framework\/Versions\/A\/CoreFoundation",
+    "name" : "CoreFoundation",
+    "CFBundleVersion" : "2202"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6591873024,
+    "CFBundleShortVersionString" : "5.0",
+    "CFBundleIdentifier" : "com.apple.audio.CoreAudio",
+    "size" : 7286784,
+    "uuid" : "2c54c60c-a5af-39f4-8286-0cb88fa43367",
+    "path" : "\/System\/Library\/Frameworks\/CoreAudio.framework\/Versions\/A\/CoreAudio",
+    "name" : "CoreAudio",
+    "CFBundleVersion" : "5.0"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6696263680,
+    "CFBundleShortVersionString" : "1.8",
+    "CFBundleIdentifier" : "com.apple.CoreVideo",
+    "size" : 385024,
+    "uuid" : "0bd999bf-c672-3dad-84f7-6eb32330d37f",
+    "path" : "\/System\/Library\/Frameworks\/CoreVideo.framework\/Versions\/A\/CoreVideo",
+    "name" : "CoreVideo",
+    "CFBundleVersion" : "604.3"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 7018807296,
+    "CFBundleShortVersionString" : "19617",
+    "CFBundleIdentifier" : "com.apple.JavaScriptCore",
+    "size" : 23953344,
+    "uuid" : "59330902-38d2-3e48-aed8-1b6327196141",
+    "path" : "\/System\/Library\/Frameworks\/JavaScriptCore.framework\/Versions\/A\/JavaScriptCore",
+    "name" : "JavaScriptCore",
+    "CFBundleVersion" : "19617.1.17.11.12"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6687711232,
+    "CFBundleShortVersionString" : "1.11",
+    "CFBundleIdentifier" : "com.apple.QuartzCore",
+    "size" : 3969024,
+    "uuid" : "4a615554-86bd-36e4-aab6-39c377bdae2c",
+    "path" : "\/System\/Library\/Frameworks\/QuartzCore.framework\/Versions\/A\/QuartzCore",
+    "name" : "QuartzCore",
+    "CFBundleVersion" : "1110.6"
+  }
+],
+  "sharedCache" : {
+  "base" : 6547357696,
+  "size" : 4061216768,
+  "uuid" : "f9ddd844-7f3f-34bd-be29-f0c72d5e5449"
+},
+  "vmSummary" : "ReadOnly portion of Libraries: Total=2.0G resident=0K(0%) swapped_out_or_unallocated=2.0G(100%)\nWritable regions: Total=6.1G written=0K(0%) resident=0K(0%) swapped_out=0K(0%) unallocated=6.1G(100%)\n\n                                VIRTUAL   REGION \nREGION TYPE                        SIZE    COUNT (non-coalesced) \n===========                     =======  ======= \nAccelerate framework               256K        2 \nActivity Tracing                   256K        1 \nCG image                           240K       14 \nCG raster data                    6096K        2 \nColorSync                          608K       30 \nCoreAnimation                     1584K       99 \nCoreGraphics                        64K        4 \nCoreImage                           16K        1 \nCoreServices                       624K        2 \nCoreUI image data                  976K       14 \nFoundation                         192K        2 \nImage IO                            64K        4 \nKernel Alloc Once                   32K        1 \nMALLOC                             1.8G      117 \nMALLOC guard page                  384K       24 \nMALLOC_LARGE (reserved)           10.0M        1         reserved VM address space (unallocated)\nSTACK GUARD                       56.5M       35 \nStack                             26.5M       35 \nVM_ALLOCATE                      175.9M       65 \nVM_ALLOCATE (reserved)             3.9G        2         reserved VM address space (unallocated)\nWebKit Malloc                    192.1M        6 \n__AUTH                            3168K      445 \n__AUTH_CONST                      34.5M      670 \n__CTF                               824        1 \n__DATA                            34.3M      737 \n__DATA_CONST                      47.6M      742 \n__DATA_DIRTY                      1997K      246 \n__FONT_DATA                          4K        1 \n__GLSLBUILTINS                    5174K        1 \n__LINKEDIT                       986.8M       72 \n__MFRT                              16K        1 \n__OBJC_RO                         71.1M        1 \n__OBJC_RW                         2168K        1 \n__POVERDDATA                        16K        1 \n__POVERTEXT                         16K        1 \n__TEXT                             1.0G      765 \ndyld private memory               1808K        4 \nmapped file                        1.2G      114 \nshared memory                     1152K       17 \n===========                     =======  ======= \nTOTAL                              9.5G     4281 \nTOTAL, minus reserved VM space     5.6G     4281 \n",
+  "legacyInfo" : {
+  "threadTriggered" : {
+    "name" : "MainThread"
+  }
+},
+  "logWritingSignature" : "948430ea698c49f2f49d69a79d96b033088dd82d",
+  "trialInfo" : {
+  "rollouts" : [
+    {
+      "rolloutId" : "645eb1d0417dab722a215927",
+      "factorPackIds" : {
+
+      },
+      "deploymentId" : 240000005
+    },
+    {
+      "rolloutId" : "632e3f9c01482c74ed76392d",
+      "factorPackIds" : {
+        "SIRI_TEXT_TO_SPEECH" : "6657c46161bbba17a4032c05"
+      },
+      "deploymentId" : 240000474
+    }
+  ],
+  "experiments" : [
+    {
+      "treatmentId" : "45f4e2a5-551b-4bc2-a2dc-19c244dda8f8",
+      "experimentId" : "6643969b3099cf28e049862f",
+      "deploymentId" : 400000007
+    }
+  ]
+}
+}
+
+Model: Macmini9,1, BootROM 10151.61.4, proc 8:4:4 processors, 16 GB, SMC 
+Graphics: Apple M1, Apple M1, Built-In
+Display: 32ML600, 1920 x 1080 (1080p FHD - Full High Definition), Main, MirrorOff, Online
+Display: S24F350, 1080 x 1920, MirrorOff, Online
+Memory Module: LPDDR4, Hynix
+AirPort: spairport_wireless_card_type_wifi (0x14E4, 0x4378), wl0: Aug 26 2023 17:55:53 version 18.20.439.0.7.8.163 FWID 01-f9b9247b
+AirPort: 
+Bluetooth: Version (null), 0 services, 0 devices, 0 incoming serial ports
+Network Service: Wi-Fi, AirPort, en1
+PCI Card: Universal Audio Apollo Solo, Other Multimedia, Thunderbolt@3,0,0
+USB Device: USB31Bus
+USB Device: USB31Bus
+USB Device: USB3.2 Hub
+USB Device: USB3.1 Hub
+USB Device: EXTERNAL_USB
+USB Device: USB2.1 Hub
+USB Device: USB BillBoard
+USB Device: USB2.1 Hub
+USB Device: USB30Bus
+USB Device: Extreme Pro 55AF
+USB Device: USB3.1 Hub
+USB Device: USB3.1 Hub
+USB Device: USB2.1 Hub
+USB Device: KOMPLETE KONTROL A61
+USB Device: USB2.1 Hub
+Thunderbolt Bus: Mac mini, Apple Inc.
+Thunderbolt Bus: Mac mini, Apple Inc.
+Thunderbolt Device: Apollo Solo, Universal Audio, Inc., 1, 20.1

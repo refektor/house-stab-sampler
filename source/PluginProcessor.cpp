@@ -269,8 +269,8 @@ void PluginProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
     juce::ignoreUnused (sampleRate, samplesPerBlock);
     sampler.setCurrentPlaybackSampleRate(sampleRate);
 
-    // Initialize delay parameters
-    delayLine.setDelay(delayTime * sampleRate);
+    // set sample rate to be used for delay time in prcoessBlock function
+    m_sampleRate = sampleRate;
 
     juce::dsp::ProcessSpec spec;
     spec.sampleRate = sampleRate;
@@ -321,6 +321,22 @@ void PluginProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     auto totalNumInputChannels  = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
 
+    // Initialize delay parameters
+    double bpm = 120.0; // Default in case host doesn't provide BPM
+    if (auto* playHead = getPlayHead())
+    {
+        if (auto position = playHead->getPosition())
+        {
+            if (position->getBpm().hasValue())
+                bpm = *position->getBpm();
+        }
+    }
+
+    double delayMs = (60000.0 / (bpm * 2)); // 1/8th note
+    delayTime = (delayMs * m_sampleRate) / 1000.0;
+
+    delayLine.setDelay(delayTime);
+
     // In case we have more outputs than inputs, this code clears any output
     // channels that didn't contain input data, (because these aren't
     // guaranteed to be empty - they may contain garbage).
@@ -332,6 +348,18 @@ void PluginProcessor::processBlock (juce::AudioBuffer<float>& buffer,
 
     sampler.renderNextBlock (buffer, midiMessages, 0, buffer.getNumSamples());
 
+    // Calculate input RMS
+    float inputRMS = 0.0f;
+    for (int channel = 0; channel < totalNumOutputChannels; ++channel)
+    {
+        auto* channelData = buffer.getReadPointer(channel);
+        for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
+        {
+            inputRMS += channelData[sample] * channelData[sample];
+        }
+    }
+    inputRMS = std::sqrt(inputRMS / (totalNumOutputChannels * buffer.getNumSamples()));
+
     // Apply saturation to the audio buffer using tanh
     for (int channel = 0; channel < totalNumOutputChannels; ++channel)
     {
@@ -339,6 +367,32 @@ void PluginProcessor::processBlock (juce::AudioBuffer<float>& buffer,
         for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
         {
             channelData[sample] = std::tanh(saturationDrive * channelData[sample]);
+        }
+    }
+
+    // Calculate output RMS
+    float outputRMS = 0.0f;
+    for (int channel = 0; channel < totalNumOutputChannels; ++channel)
+    {
+        auto* channelData = buffer.getReadPointer(channel);
+        for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
+        {
+            outputRMS += channelData[sample] * channelData[sample];
+        }
+    }
+    outputRMS = std::sqrt(outputRMS / (totalNumOutputChannels * buffer.getNumSamples()));
+
+    // Apply auto gain to match input RMS
+    if (outputRMS > 0.0f)
+    {
+        float gain = inputRMS / outputRMS;
+        for (int channel = 0; channel < totalNumOutputChannels; ++channel)
+        {
+            auto* channelData = buffer.getWritePointer(channel);
+            for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
+            {
+                channelData[sample] *= gain;
+            }
         }
     }
     

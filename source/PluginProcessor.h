@@ -81,6 +81,8 @@ private:
     float volumeLevel = 0.0f;
     juce::SamplerSound *currentSound = nullptr;
 
+    double m_sampleRate = 0.0;
+
     // ADSR values
     float attack = 0.1f;
     float decay = 0.1f;

@@ -48,7 +48,8 @@ juce_add_plugin(${PROJECT_NAME}
         PLUGIN_MANUFACTURER_CODE Neighbours
         PLUGIN_CODE Reg0
         FORMATS VST3 AU Standalone
-        PRODUCT_NAME "House Stab Samples"        
+        NEEDS_WEBVIEW2 TRUE  
+        PRODUCT_NAME "HouseStabSamples" # This can't have whitespaces or the create_pkg.sh script will fail
 )
 
 # How we want our SourceFiles to appear in our IDE

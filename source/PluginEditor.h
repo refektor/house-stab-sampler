@@ -23,5 +23,9 @@ private:
 
     int loadedPresetOptions = false;
 
+    juce::WebSliderRelay reverbSliderRelay;
+    
+    juce::WebSliderParameterAttachment reverbSliderAttachment;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginProcessorEditor)
 };

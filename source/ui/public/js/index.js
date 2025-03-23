@@ -232,6 +232,64 @@ document.addEventListener("DOMContentLoaded", (event) => {
       drawNeedle(currentValue);
     };
 
+    window.setReverbKnob = function (value) {
+        // Calculate the rotation based on the value
+        const rotation = (value) * 270 - 135;
+        const knob = document.getElementById("reverb");
+        knob.style.transform = `rotate(${rotation}deg)`;
+    };
+
+    window.setDelayKnob = function (value) {
+        // Calculate the rotation based on the value
+        const rotation = (value) * 270 - 135;
+        const knob = document.getElementById("delay");
+        knob.style.transform = `rotate(${rotation}deg)`;
+    };
+
+    window.setChorusKnob = function (value) {
+        // Calculate the rotation based on the value
+        const rotation = (value) * 270 - 135;
+        const knob = document.getElementById("chorus");
+        knob.style.transform = `rotate(${rotation}deg)`;
+    };
+
+    window.setDriveKnob = function (value) {
+        // Calculate the rotation based on the value
+        const rotation = (value) * 270 - 135;
+        const knob = document.getElementById("drive");
+        knob.style.transform = `rotate(${rotation}deg)`;
+    };
+
+    window.setAttackKnob = function (value) {
+        // Calculate the rotation based on the value
+        const rotation = (value) * 270 - 135;
+        const knob = document.getElementById("attack");
+        knob.style.transform = `rotate(${rotation}deg)`;
+    };
+
+    window.setDecayKnob = function (value) {
+        // Calculate the rotation based on the value
+        const rotation = (value) * 270 - 135;
+        const knob = document.getElementById("decay");
+        knob.style.transform = `rotate(${rotation}deg)`;
+    };
+
+    window.setSustainKnob = function (value) {
+        // Calculate the rotation based on the value
+        const rotation = value * 270 - 135;
+        const knob = document.getElementById("sustain");
+        knob.style.transform = `rotate(${rotation}deg)`;
+    };
+
+    window.setReleaseKnob = function (value) {
+        // Calculate the rotation based on the value
+        const rotation = (value) * 270 - 135;
+        const knob = document.getElementById("release");
+        knob.style.transform = `rotate(${rotation}deg)`;
+    };
+
     firstLoad = false;
   }
 });
+
+

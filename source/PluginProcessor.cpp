@@ -50,8 +50,20 @@ static const char* getMimeForExtension (const juce::String& extension)
 
 PluginProcessor::PluginProcessor()
      : AudioProcessor (BusesProperties()
-                       .withOutput ("Output", juce::AudioChannelSet::stereo(), true))
+                       .withOutput ("Output", juce::AudioChannelSet::stereo(), true)),
+    parameters(*this, nullptr, "PARAMETERS",
+                 { std::make_unique<juce::AudioParameterFloat>("gain", "Gain", 0.0f, 1.0f, 0.5f),
+                   std::make_unique<juce::AudioParameterFloat>("frequency", "Frequency", 20.0f, 20000.0f, 440.0f) })
 {
+    parameters.createAndAddParameter("attack", "Attack", "Attack", juce::NormalisableRange<float>(0.1f, 1.0f, 0.01f), this->attack, nullptr, nullptr);
+    parameters.createAndAddParameter("decay", "Decay", "Decay", juce::NormalisableRange<float>(0.1f, 1.0f, 0.01f), this->decay, nullptr, nullptr);
+    parameters.createAndAddParameter("sustain", "Sustain", "Sustain", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), this->sustain, nullptr, nullptr);
+    parameters.createAndAddParameter("release", "Release", "Release", juce::NormalisableRange<float>(0.1f, 1.0f, 0.01f), this->release, nullptr, nullptr);
+    parameters.createAndAddParameter("reverbMix", "Reverb", "Reverb", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), this->reverbMix, nullptr, nullptr);
+    parameters.createAndAddParameter("delayMix", "Delay", "Delay", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), this->delayMix, nullptr, nullptr);
+    parameters.createAndAddParameter("chorusMix", "Chorus", "Chorus", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), this->chorusMix, nullptr, nullptr);
+    parameters.createAndAddParameter("driveMix", "Drive", "Drive", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), this->saturationDrive, nullptr, nullptr);
+
     // Add voices to the sampler
     for (int i = 0; i < 8; ++i)
         sampler.addVoice(new juce::SamplerVoice());
@@ -321,7 +333,17 @@ void PluginProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     auto totalNumInputChannels  = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
 
-    // Initialize delay parameters
+    // Get automation parameters
+    setDelayMix(parameters.getRawParameterValue("delayMix")->load());
+    setSaturationDrive(parameters.getRawParameterValue("driveMix")->load());
+    setChorusMix(parameters.getRawParameterValue("chorusMix")->load());
+    setReverbMix(parameters.getRawParameterValue("reverbMix")->load());
+    setAttack(parameters.getRawParameterValue("attack")->load());
+    setDecay(parameters.getRawParameterValue("decay")->load());
+    setSustain(parameters.getRawParameterValue("sustain")->load());
+    setRelease(parameters.getRawParameterValue("release")->load());
+
+    // Set delay time based on BPM. We have to do it here because this is the only place where we can get the BPM from the host
     double bpm = 120.0; // Default in case host doesn't provide BPM
     if (auto* playHead = getPlayHead())
     {
@@ -331,10 +353,8 @@ void PluginProcessor::processBlock (juce::AudioBuffer<float>& buffer,
                 bpm = *position->getBpm();
         }
     }
-
     double delayMs = (60000.0 / (bpm * 2)); // 1/8th note
     delayTime = (delayMs * m_sampleRate) / 1000.0;
-
     delayLine.setDelay(delayTime);
 
     // In case we have more outputs than inputs, this code clears any output

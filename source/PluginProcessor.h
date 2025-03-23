@@ -42,36 +42,58 @@ public:
         attack = newAttack;
         applySoundADSRParams();
     }
+
+    float getAttack() const { return attack; }
+
     void setDecay(float newDecay) { 
         decay = newDecay;
         applySoundADSRParams();
     }
+
+    float getDecay() const { return decay; }
+    
     void setSustain(float newSustain) { 
         sustain = newSustain;
         applySoundADSRParams();
     }
+
+    float getSustain() const { return sustain; }
+
     void setRelease(float newRelease) { 
         release = newRelease;
         applySoundADSRParams();
     }
 
+    float getRelease() const { return release; }
+
     void setReverbMix(float mix) { 
+        reverbMix = mix;
+        parameters.getRawParameterValue("reverbMix")->store(mix);
         reverbParams.wetLevel = mix;
         reverbParams.dryLevel = 1.0f - mix;
         reverb.setParameters(reverbParams);
     }
 
+    float getReverbMix() const { return reverbMix; }
+
     void setDelayMix(float mix) {
         this->delayMix = mix;
     }
 
+    float getDelayMix() const { return delayMix; }
+
     void setChorusMix(float mix) {
+        chorusMix = mix;
         chorus.setMix(mix);
     }
+
+    float getChorusMix() const { return chorusMix; }
 
     void setSaturationDrive(float drive) {
         saturationDrive = drive;
     }
+
+    float getDriveMix() const { return saturationDrive; }
 
     std::unique_ptr<juce::WebBrowserComponent> webView;
 
@@ -80,6 +102,7 @@ private:
     juce::AudioFormatManager formatManager;
     float volumeLevel = 0.0f;
     juce::SamplerSound *currentSound = nullptr;
+    juce::AudioProcessorValueTreeState parameters;
 
     double m_sampleRate = 0.0;
 
@@ -93,14 +116,16 @@ private:
     juce::dsp::DelayLine<float> delayLine { 44100 }; // 1 second delay at 44.1kHz sample rate
     float delayTime = 0.5f; // 500ms delay
     float feedback = 0.5f; // 50% feedback
-    float delayMix = 0.0f; // 50% wet/dry mix
+    float delayMix = 0.0f; // 0% wet/dry mix
 
     // Reverb
     juce::dsp::Reverb reverb;
     juce::dsp::Reverb::Parameters reverbParams;
+    float reverbMix = 0.0f;
 
     // Chorus
     juce::dsp::Chorus<float> chorus;
+    float chorusMix = 0.0f;
 
     // Saturation
     float saturationDrive = 1.0f;

@@ -21,10 +21,21 @@ PluginProcessorEditor::~PluginProcessorEditor()
 
 void PluginProcessorEditor::timerCallback()
 {
+    // Update VU meter needle
     auto volumeLevel = processor.getMagnitude();
-    juce::String jsCode = "updateNeedle(" + juce::String(volumeLevel) + ");";
-    // Assuming you have a WebBrowserComponent named webBrowser
+    juce::String jsCode = "updateNeedle(" + juce::String(volumeLevel) + ");\n";
+
+    // Update mix parameters for automation from DAW
+    jsCode += "setReverbKnob(" + juce::String(processor.getReverbMix()) + ");\n";
+    jsCode += "setDelayKnob(" + juce::String(processor.getDelayMix()) + ");\n";
+    jsCode += "setChorusKnob(" + juce::String(processor.getChorusMix()) + ");\n";
+    jsCode += "setDriveKnob(" + juce::String(processor.getDriveMix()) + ");\n";
+    jsCode += "setAttackKnob(" + juce::String(processor.getAttack()) + ");\n";
+    jsCode += "setDecayKnob(" + juce::String(processor.getDecay()) + ");\n";
+    jsCode += "setSustainKnob(" + juce::String(processor.getSustain()) + ");\n";
+    jsCode += "setReleaseKnob(" + juce::String(processor.getRelease()) + ");\n";
     processor.webView->evaluateJavascript(jsCode);
+
 
      
 }

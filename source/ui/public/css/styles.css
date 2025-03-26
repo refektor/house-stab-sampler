@@ -91,11 +91,12 @@ canvas {
 
 .dropdown {
   position: absolute;
-  top: 37px;
+  top: 20px;
   left: 0px;
   right: 0;
   flex: 1;
-  text-align: center;
+  text-align: right;
+  padding-right: 48px;
 }
 
 .dropdown select {
@@ -105,10 +106,41 @@ canvas {
 }
 
 #presets {
-  background: #111;
-  color: #fff;
-  border-radius: 3px;
+  background: #2c1a1a;
+  color: #f23f3f;
+  border-radius: 4px;
   border: 1px solid #414141;
+  font-family: "Courier New", monospace;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #f23f3f 50%),
+    linear-gradient(135deg, #f23f3f 50%, transparent 50%);
+  background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  text-shadow: 0 0 5px rgba(196, 132, 132, 0.5);
+  width: 160px;
+  height: 24px;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+#presets:focus {
+  outline: none;
+  /* border-color: #c48484; */
+  /* box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), */
+    0 0 5px rgba(196, 132, 132, 0.3);
+}
+
+#presets option {
+  background: #2c1a1a;
+  color: #c48484;
+  font-size: 10px;
+  letter-spacing: 1px;
 }
 
 .main-content {
@@ -189,7 +221,7 @@ canvas {
 
 .filter-knob-section {
   position: absolute;
-  top: 366px;
+  top: 358px;
   right: 74px;
   display: flex;
   flex-direction: column;
@@ -210,7 +242,7 @@ canvas {
   position: absolute;
   border: 1px solid #414141;
   bottom: 12px;
-  border-radius: 3px;
+  border-radius: 8px;
   background: #101010;
 }
 
@@ -231,7 +263,7 @@ legend.text {
 
 .envelope-knob-section {
   position: absolute;
-  top: 75px;
+  top: 64px;
   left: 0;
   right: 0;
   flex: 1;
@@ -244,7 +276,7 @@ legend.text {
 
 .effect-knob-section {
   position: absolute;
-  top: 175px;
+  top: 169px;
   left: 0;
   right: 0;
   flex: 1;
@@ -257,7 +289,7 @@ legend.text {
 
 .gain-knob-section {
   position: absolute;
-  top: 314px;
+  top: 311px;
   right: 65px;
   display: flex;
   flex-direction: column;

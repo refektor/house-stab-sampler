@@ -30,9 +30,10 @@ body {
 
 .vu-meter-wrapper {
   position: absolute;
-  top: 278px;
-  left: 54px;
+  top: 250px;
+  left: 44px;
   border: 1px solid #414141;
+  zoom: 1.1;
 }
 
 .vu-meter-bg {
@@ -59,8 +60,8 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 175px; /* Adjust the value as needed */
-  height: 100px; /* Adjust the value as needed */
+  width: 175px;
+  height: 100px;
   bottom: 1px;
 }
 
@@ -90,7 +91,7 @@ canvas {
 
 .dropdown {
   position: absolute;
-  top: 37px; /* Adjust the value as needed */
+  top: 37px;
   left: 0px;
   right: 0;
   flex: 1;
@@ -98,9 +99,9 @@ canvas {
 }
 
 .dropdown select {
-  font-size: 9px; /* Adjust the value as needed */
-  width: 140px; /* Adjust the value as needed */
-  height: 24px; /* Adjust the value as needed */
+  font-size: 9px;
+  width: 140px;
+  height: 24px;
 }
 
 #presets {
@@ -166,15 +167,15 @@ canvas {
   top: 0%;
   left: 50%;
   transform-origin: center bottom;
-  transform: rotate(-90deg); /* Start from the left side */
+  transform: rotate(-90deg);
   box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
 }
 
-.tick {
+.gain-knob .tick {
   position: absolute;
   width: 2px;
   height: 10px;
-  background-color: #fff;
+  background-color: #000;
   top: 0;
   left: 50%;
   transform-origin: center bottom;
@@ -184,7 +185,23 @@ canvas {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 37px;
-  /*margin-top: 50px;*/
+}
+
+.filter-knob-section {
+  position: absolute;
+  top: 366px;
+  right: 74px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  zoom: 0.75;
+}
+.filter-knob-container {
+  display: grid;
+  grid-template-columns: repeat(2, 0fr);
+  gap: 41px;
 }
 
 .knob-container-border {
@@ -214,7 +231,7 @@ legend.text {
 
 .envelope-knob-section {
   position: absolute;
-  top: 75px; /* Adjust the value as needed */
+  top: 75px;
   left: 0;
   right: 0;
   flex: 1;
@@ -227,7 +244,7 @@ legend.text {
 
 .effect-knob-section {
   position: absolute;
-  top: 175px; /* Adjust the value as needed */
+  top: 175px;
   left: 0;
   right: 0;
   flex: 1;
@@ -238,10 +255,10 @@ legend.text {
   padding: 20px;
 }
 
-.output-knob-section {
+.gain-knob-section {
   position: absolute;
-  top: 278px; /* Adjust the value as needed */
-  right: 59px;
+  top: 314px;
+  right: 65px;
   display: flex;
   flex-direction: column;
   justify-content: center; /* Center vertically */
@@ -249,39 +266,39 @@ legend.text {
   padding: 20px;
 }
 
-.output-knob {
+.gain-knob {
   background-image: url("knob.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 55px;
-  height: 55px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-.output-knob-steps {
+.gain-knob-steps {
   background-image: url("knob-steps.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 76px;
-  height: 79px;
+  width: 66px;
+  height: 70px;
   position: fixed;
   margin-top: -15px;
 }
 
-.output-knob-wrapper {
+.gain-knob-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.output-knob-label {
+.gain-knob-label {
   margin-top: 10px;
-  font-size: 7px;
+  font-size: 6px;
   color: #fffae5;
   letter-spacing: 1px;
   text-align: center; /* Center the text horizontally */

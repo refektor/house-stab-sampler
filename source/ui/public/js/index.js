@@ -51,6 +51,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
       });
     }
 
+    // Filter & Output Knobs need to be connected to the backend
+    function setLowCut(value) {
+      const lowCutValue = value / 100;
+      window.__JUCE__.backend.emitEvent("setLowCut", { lowCut: lowCutValue });
+    }
+
+    function setHiCut(value) {
+      const hiCutValue = value / 100;
+      window.__JUCE__.backend.emitEvent("setHiCut", { hiCut: hiCutValue });
+    }
+
+    function setOutputGain(value) {
+      const outputGainValue = value / 100;
+      window.__JUCE__.backend.emitEvent("setOutputGain", {
+        outputGain: outputGainValue,
+      });
+    }
+
     const dropdown = document.getElementById("presets");
 
     for (let i = 1; i <= NUM_PRESETS; i++) {
@@ -66,10 +84,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
       });
     });
 
-    document.querySelectorAll(".knob").forEach((knob) => {
+    document.querySelectorAll(".knob, .output-knob").forEach((knob) => {
       let isDragging = false;
       let startY = 0;
-      let currentRotation = knob.id === "sustain" ? 135 : -135; // Initial rotation angle (start position)
+      let currentRotation =
+        knob.id === "sustain" || knob.id === "hicut"
+          ? 135
+          : knob.id === "gain"
+          ? 0
+          : -135; // Initial rotation angle (start position)
       const maxRotation = 135; // Maximum rotation angle (end position)
 
       // Apply initial rotation
@@ -113,6 +136,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
             setChorusMix(value);
           } else if (knob.id === "drive") {
             setSaturationDrive(value);
+            // New filter and gain knobs
+          } else if (knob.id === "lowcut") {
+            setLowCut(value);
+          } else if (knob.id === "hicut") {
+            setHiCut(value);
+          } else if (knob.id === "gain") {
+            setOutputGain(value);
           }
         }
       });

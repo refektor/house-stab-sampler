@@ -14,8 +14,7 @@ PluginProcessor::PluginProcessor()
 {
     // Add voices to the sampler
     for (int i = 0; i < 8; ++i)
-        sampler.addVoice(new juce::SamplerVoice());
-    
+        sampler.addVoice(new juce::SamplerVoice());    
 
     // Initialize reverb parameters
     reverbParams.roomSize = 0.5f;

@@ -58,6 +58,10 @@ PluginEditor::PluginEditor (PluginProcessor& p)
     webView {
         juce::WebBrowserComponent::Options{}
             .withBackend(juce::WebBrowserComponent::Options::Backend::webview2)
+        #ifdef _WIN32
+            .withWinWebView2Options(juce::WebBrowserComponent::Options::WinWebView2{}.withUserDataFolder
+            (juce::File::getSpecialLocation(juce::File::tempDirectory)))
+        #endif
             .withResourceProvider([this](const juce::String& url) { return getResource(url); })
             .withNativeIntegrationEnabled()
             .withEventListener("presetSelectionChanged", [this](const juce::var& message) {

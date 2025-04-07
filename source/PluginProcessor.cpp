@@ -59,12 +59,16 @@ PluginProcessor::PluginProcessor()
 
     webView = std::make_unique<juce::WebBrowserComponent>(juce::WebBrowserComponent::Options{}
         .withBackend(juce::WebBrowserComponent::Options::Backend::webview2)
+    #ifdef _WIN32
+        .withWinWebView2Options(juce::WebBrowserComponent::Options::WinWebView2{}.withUserDataFolder
+        (juce::File::getSpecialLocation(juce::File::tempDirectory)))
+    #endif
         .withResourceProvider([this](const juce::String& url) { return getResource(url); })
         .withNativeIntegrationEnabled()
         .withEventListener("presetSelectionChanged", [this](const juce::var& message) {
             setPreset(message["presetIndex"]);
         }).withEventListener("setAttack", [this](const juce::var& message) {
-            setAttack(message["attack"]);
+            setAttack(message["attack"]); 
         }).withEventListener("setDecay", [this](const juce::var& message) {
             setDecay(message["decay"]);
         }).withEventListener("setSustain", [this](const juce::var& message) {

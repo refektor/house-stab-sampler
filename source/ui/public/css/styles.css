@@ -23,7 +23,7 @@ body {
 body {
   margin: 0;
   padding: 0;
-  background: url("sampler-bg.png") no-repeat center center;
+  background: url("sampler-bg-logo.png") no-repeat center center;
   background-size: 100% 100%; /* Ensures the image fits the page size */
   display: flex;
 }
@@ -96,7 +96,7 @@ canvas {
   right: 0;
   flex: 1;
   text-align: right;
-  padding-right: 48px;
+  padding-right: 63px;
 }
 
 .dropdown select {
@@ -123,7 +123,7 @@ canvas {
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
   text-shadow: 0 0 5px rgba(196, 132, 132, 0.5);
-  width: 160px;
+  width: 165px;
   height: 24px;
   font-size: 10px;
   letter-spacing: 1px;

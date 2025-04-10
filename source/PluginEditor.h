@@ -4,11 +4,11 @@
 #include <juce_gui_extra/juce_gui_extra.h>
 
 //==============================================================================
-class PluginProcessorEditor final : public juce::AudioProcessorEditor, private juce::Timer
+class PluginEditor final : public juce::AudioProcessorEditor, private juce::Timer
 {
 public:
-    explicit PluginProcessorEditor (PluginProcessor&);
-    ~PluginProcessorEditor() override;
+    explicit PluginEditor (PluginProcessor&);
+    ~PluginEditor() override;
 
     //==============================================================================
     //void paint (juce::Graphics&) override;
@@ -24,8 +24,29 @@ private:
     int loadedPresetOptions = false;
 
     juce::WebSliderRelay reverbSliderRelay;
+    juce::WebSliderRelay delaySliderRelay;
+    juce::WebSliderRelay chorusSliderRelay;
+    juce::WebSliderRelay driveSliderRelay;
+    juce::WebSliderRelay attackSliderRelay;
+    juce::WebSliderRelay decaySliderRelay;
+    juce::WebSliderRelay sustainSliderRelay;
+    juce::WebSliderRelay releaseSliderRelay;
+    juce::WebComboBoxRelay presetRelay;
     
-    juce::WebSliderParameterAttachment reverbSliderAttachment;
+    juce::WebBrowserComponent webView;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginProcessorEditor)
+    juce::WebSliderParameterAttachment reverbSliderAttachment;
+    juce::WebSliderParameterAttachment delaySliderAttachment;
+    juce::WebSliderParameterAttachment chorusSliderAttachment;
+    juce::WebSliderParameterAttachment driveSliderAttachment;
+    juce::WebSliderParameterAttachment attackSliderAttachment;
+    juce::WebSliderParameterAttachment decaySliderAttachment;
+    juce::WebSliderParameterAttachment sustainSliderAttachment;
+    juce::WebSliderParameterAttachment releaseSliderAttachment;
+    juce::WebComboBoxParameterAttachment presetAttachment;
+
+    using Resource = juce::WebBrowserComponent::Resource;
+    std::optional<Resource> getResource(const juce::String& url);
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginEditor)
 };

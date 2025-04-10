@@ -4,51 +4,152 @@ const NUM_PRESETS = 38;
 let firstLoad = true;
 
 document.addEventListener("DOMContentLoaded", (event) => {
+
+    let currentRotations = {};
+
   if (firstLoad) {
+    // Set up preset selection
+    const presetState = Juce.getComboBoxState("presetIndex");
+    presetState.valueChangedEvent.addListener(() => {
+      const presetIndex = presetState.getChoiceIndex();
+      const dropdown = document.getElementById("presets");
+      if (dropdown && dropdown.selectedIndex !== presetIndex) {
+        dropdown.selectedIndex = presetIndex;
+      }
+    });
+
+    presetState.propertiesChangedEvent.addListener(() => {
+      const dropdown = document.getElementById("presets");
+      dropdown.innerHTML = "";
+      presetState.properties.choices.forEach((choice) => {
+        dropdown.innerHTML += `<option value=\"${choice}\">${choice}</option>`;
+      });
+    });
+
+    const reverbSliderState = Juce.getSliderState("reverbMix");
+    reverbSliderState.valueChangedEvent.addListener(() => {
+        const value = reverbSliderState.getScaledValue();
+        const rotation = (value) * 270 - 135;
+        const knob = document.getElementById("reverb");
+        knob.style.transform = `rotate(${rotation}deg)`;
+        currentRotations[knob.id] = rotation;
+    });
+
+    const delaySliderState = Juce.getSliderState("delayMix");
+    delaySliderState.valueChangedEvent.addListener(() => {
+        const value = delaySliderState.getScaledValue();
+        const rotation = (value) * 270 - 135;
+        const knob = document.getElementById("delay");
+        knob.style.transform = `rotate(${rotation}deg)`;
+        currentRotations[knob.id] = rotation;
+    });
+
+    const chorusSliderState = Juce.getSliderState("chorusMix");
+    chorusSliderState.valueChangedEvent.addListener(() => {
+        const value = chorusSliderState.getScaledValue();
+        const rotation = (value) * 270 - 135;
+        const knob = document.getElementById("chorus");
+        knob.style.transform = `rotate(${rotation}deg)`;
+        currentRotations[knob.id] = rotation;
+    });
+
+    const driveSliderState = Juce.getSliderState("saturationDrive");
+    driveSliderState.valueChangedEvent.addListener(() => {
+        const value = driveSliderState.getScaledValue();
+        const rotation = (value) * 270 - 135;
+        const knob = document.getElementById("drive");
+        knob.style.transform = `rotate(${rotation}deg)`;
+        currentRotations[knob.id] = rotation;
+    });
+
+    const attackSliderState = Juce.getSliderState("attack");
+    attackSliderState.valueChangedEvent.addListener(() => {
+        const value = attackSliderState.getScaledValue();
+        const rotation = (value) * 270 - 135;
+        const knob = document.getElementById("attack");
+        knob.style.transform = `rotate(${rotation}deg)`;
+        currentRotations[knob.id] = rotation;
+    });
+
+    const decaySliderState = Juce.getSliderState("decay");
+    decaySliderState.valueChangedEvent.addListener(() => {
+        const value = decaySliderState.getScaledValue();
+        const rotation = (value) * 270 - 135;
+        const knob = document.getElementById("decay");
+        knob.style.transform = `rotate(${rotation}deg)`;
+        currentRotations[knob.id] = rotation;
+    });
+
+    const sustainSliderState = Juce.getSliderState("sustain");
+    sustainSliderState.valueChangedEvent.addListener(() => {
+        const value = sustainSliderState.getScaledValue();
+        const rotation = value * 270 - 135;
+        const knob = document.getElementById("sustain");
+        knob.style.transform = `rotate(${rotation}deg)`;
+        currentRotations[knob.id] = rotation;
+    });
+
+    const releaseSliderState = Juce.getSliderState("release"); 
+    releaseSliderState.valueChangedEvent.addListener(() => {
+        const value = releaseSliderState.getScaledValue();
+        const rotation = (value) * 270 - 135;
+        const knob = document.getElementById("release");
+        knob.style.transform = `rotate(${rotation}deg)`;
+        currentRotations[knob.id] = rotation;
+    });
+
     function setAttack(value) {
-      const attackValue = value / 100 + 0.1;
-      window.__JUCE__.backend.emitEvent("setAttack", { attack: attackValue });
+      const attackValue = value / 100;
+      //window.__JUCE__.backend.emitEvent("setAttack", { attack: attackValue });
+      attackSliderState.setNormalisedValue(attackValue);
     }
 
     function setDecay(value) {
-      const decayValue = value / 100 + 0.1;
-      window.__JUCE__.backend.emitEvent("setDecay", { decay: decayValue });
+        const decayValue = value / 100;
+        //window.__JUCE__.backend.emitEvent("setDecay", { decay: decayValue });
+        decaySliderState.setNormalisedValue(decayValue);
     }
 
     function setSustain(value) {
-      const sustainValue = value / 100;
-      window.__JUCE__.backend.emitEvent("setSustain", {
-        sustain: sustainValue,
-      });
+        const sustainValue = value / 100;
+        // window.__JUCE__.backend.emitEvent("setSustain", {
+        //     sustain: sustainValue,
+        // });
+        sustainSliderState.setNormalisedValue(sustainValue);
     }
 
     function setRelease(value) {
-      const releaseValue = value / 100 + 0.1;
-      window.__JUCE__.backend.emitEvent("setRelease", {
-        release: releaseValue,
-      });
+        const releaseValue = value / 100;
+        // window.__JUCE__.backend.emitEvent("setRelease", {
+        // release: releaseValue,
+        // });
+        releaseSliderState.setNormalisedValue(releaseValue);
     }
 
     function setReverbMix(value) {
-      const mixValue = value / 100;
-      window.__JUCE__.backend.emitEvent("setReverbMix", { mix: mixValue });
+        const mixValue = value / 100;
+        //window.__JUCE__.backend.emitEvent("setReverbMix", { mix: mixValue });
+        reverbSliderState.setNormalisedValue(mixValue);
     }
 
     function setDelayMix(value) {
-      const mixValue = value / 100;
-      window.__JUCE__.backend.emitEvent("setDelayMix", { mix: mixValue });
+        const mixValue = value / 100;
+        //window.__JUCE__.backend.emitEvent("setDelayMix", { mix: mixValue });
+        delaySliderState.setNormalisedValue(mixValue);
     }
 
     function setChorusMix(value) {
-      const mixValue = value / 100;
-      window.__JUCE__.backend.emitEvent("setChorusMix", { mix: mixValue });
+        const mixValue = value / 100;
+        //window.__JUCE__.backend.emitEvent("setChorusMix", { mix: mixValue });
+        chorusSliderState.setNormalisedValue(mixValue);
     }
 
     function setSaturationDrive(value) {
-      const driveValue = (value * 3) / 100 + 1;
-      window.__JUCE__.backend.emitEvent("setSaturationDrive", {
-        drive: driveValue,
-      });
+        const driveValue = (value) / 100;
+        // window.__JUCE__.backend.emitEvent("setSaturationDrive", {
+        //     drive: driveValue,
+        // });
+        driveSliderState.setNormalisedValue(driveValue);
     }
 
     // Filter & Output Knobs need to be connected to the backend
@@ -79,20 +180,29 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     dropdown.addEventListener("change", (event) => {
       const selectedIndex = event.target.selectedIndex;
-      window.__JUCE__.backend.emitEvent("presetSelectionChanged", {
-        presetIndex: selectedIndex,
-      });
+      // window.__JUCE__.backend.emitEvent("presetSelectionChanged", {
+      //   presetIndex: selectedIndex,
+      // });
+      presetState.setChoiceIndex(selectedIndex);
     });
 
     document.querySelectorAll(".knob, .output-knob").forEach((knob) => {
       let isDragging = false;
       let startY = 0;
-      let currentRotation =
-        knob.id === "sustain" || knob.id === "hicut"
-          ? 135
-          : knob.id === "gain"
-          ? 0
-          : -135; // Initial rotation angle (start position)
+
+      let currentRotation = 0;
+      if (currentRotations[knob.id]) {
+        currentRotation = currentRotations[knob.id];
+        } else {
+            currentRotation =  knob.id === "sustain" || knob.id === "hicut"
+            ? 135
+            : knob.id === "gain"
+            ? 0
+            : -135; // Initial rotation angle (start position)
+            currentRotations[knob.id] = currentRotation;
+        }
+        
+
       const maxRotation = 135; // Maximum rotation angle (end position)
 
       // Apply initial rotation
@@ -108,16 +218,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
       document.addEventListener("mousemove", (e) => {
         if (isDragging) {
           const deltaY = startY - e.clientY;
-          currentRotation += deltaY;
-          currentRotation = Math.max(
+          console.log(e.clientY);
+          currentRotations[knob.id] += deltaY;
+          currentRotations[knob.id] = Math.max(
             -135,
-            Math.min(maxRotation, currentRotation)
+            Math.min(maxRotation, currentRotations[knob.id])
           ); // Limit rotation between -135 and 135 degrees
-          knob.style.transform = `rotate(${currentRotation}deg)`;
+          knob.style.transform = `rotate(${currentRotations[knob.id]}deg)`;
           startY = e.clientY;
 
           // Capture the value (0 to 100 based on rotation)
-          const value = Math.round(((currentRotation + 135) / 270) * 100);
+          const value = Math.round(((currentRotations[knob.id] + 135) / 270) * 100);
           console.log(`Knob ${knob.id} value: ${value}`);
 
           if (knob.id === "attack") {
@@ -216,6 +327,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Start animation
     updateMeter();
 
+    
+
     window.addPresetOptions = function (numPresets) {
       const dropdown = document.getElementById("presets");
 
@@ -230,62 +343,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       currentValue = volumeLevel;
       currentValue = Math.max(0, Math.min(1, currentValue)); // Clamp value between 0 and 1
       drawNeedle(currentValue);
-    };
-
-    window.setReverbKnob = function (value) {
-        // Calculate the rotation based on the value
-        const rotation = (value) * 270 - 135;
-        const knob = document.getElementById("reverb");
-        knob.style.transform = `rotate(${rotation}deg)`;
-    };
-
-    window.setDelayKnob = function (value) {
-        // Calculate the rotation based on the value
-        const rotation = (value) * 270 - 135;
-        const knob = document.getElementById("delay");
-        knob.style.transform = `rotate(${rotation}deg)`;
-    };
-
-    window.setChorusKnob = function (value) {
-        // Calculate the rotation based on the value
-        const rotation = (value) * 270 - 135;
-        const knob = document.getElementById("chorus");
-        knob.style.transform = `rotate(${rotation}deg)`;
-    };
-
-    window.setDriveKnob = function (value) {
-        // Calculate the rotation based on the value
-        const rotation = (value) * 270 - 135;
-        const knob = document.getElementById("drive");
-        knob.style.transform = `rotate(${rotation}deg)`;
-    };
-
-    window.setAttackKnob = function (value) {
-        // Calculate the rotation based on the value
-        const rotation = (value) * 270 - 135;
-        const knob = document.getElementById("attack");
-        knob.style.transform = `rotate(${rotation}deg)`;
-    };
-
-    window.setDecayKnob = function (value) {
-        // Calculate the rotation based on the value
-        const rotation = (value) * 270 - 135;
-        const knob = document.getElementById("decay");
-        knob.style.transform = `rotate(${rotation}deg)`;
-    };
-
-    window.setSustainKnob = function (value) {
-        // Calculate the rotation based on the value
-        const rotation = value * 270 - 135;
-        const knob = document.getElementById("sustain");
-        knob.style.transform = `rotate(${rotation}deg)`;
-    };
-
-    window.setReleaseKnob = function (value) {
-        // Calculate the rotation based on the value
-        const rotation = (value) * 270 - 135;
-        const knob = document.getElementById("release");
-        knob.style.transform = `rotate(${rotation}deg)`;
     };
 
     firstLoad = false;

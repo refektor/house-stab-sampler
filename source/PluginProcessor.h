@@ -3,8 +3,8 @@
 #include <juce_audio_processors/juce_audio_processors.h>
 #include <juce_audio_formats/juce_audio_formats.h>
 #include <juce_audio_basics/juce_audio_basics.h>
-#include <juce_gui_extra/juce_gui_extra.h>
 #include <juce_dsp/juce_dsp.h>
+#include <algorithm>
 
 class PluginProcessor : public juce::AudioProcessor
 {
@@ -60,6 +60,10 @@ public:
     float getSustain() const { return sustain; }
 
     void setRelease(float newRelease) { 
+        // a release of 0.0f will cause a clicking sound, so we set it to 0.01f
+        if (newRelease == 0.0f) {
+            newRelease = 0.001f;
+        }   
         release = newRelease;
         applySoundADSRParams();
     }
@@ -68,7 +72,6 @@ public:
 
     void setReverbMix(float mix) { 
         reverbMix = mix;
-        parameters.getRawParameterValue("reverbMix")->store(mix);
         reverbParams.wetLevel = mix;
         reverbParams.dryLevel = 1.0f - mix;
         reverb.setParameters(reverbParams);
@@ -90,27 +93,26 @@ public:
     float getChorusMix() const { return chorusMix; }
 
     void setSaturationDrive(float drive) {
-        saturationDrive = drive;
+        saturationDrive = std::clamp(drive, 1.0f, 10.0f); // Clamp to [0.0, 1.0] 
     }
 
     float getDriveMix() const { return saturationDrive; }
 
-    std::unique_ptr<juce::WebBrowserComponent> webView;
+    [[nodiscard]] juce::AudioProcessorValueTreeState& getState() noexcept { return state; }
 
 private:
     juce::Synthesiser sampler;
     juce::AudioFormatManager formatManager;
     float volumeLevel = 0.0f;
     juce::SamplerSound *currentSound = nullptr;
-    juce::AudioProcessorValueTreeState parameters;
 
     double m_sampleRate = 0.0;
 
     // ADSR values
-    float attack = 0.1f;
-    float decay = 0.1f;
+    float attack = 0.0f;
+    float decay = 0.0f;
     float sustain = 1.0f;
-    float release = 0.1f;
+    float release = 0.0f;
 
     // Delay
     juce::dsp::DelayLine<float> delayLine { 44100 }; // 1 second delay at 44.1kHz sample rate
@@ -130,9 +132,23 @@ private:
     // Saturation
     float saturationDrive = 1.0f;
 
-
-    using Resource = juce::WebBrowserComponent::Resource;
-    std::optional<Resource> getResource(const juce::String& url);
+    // PARAMETER STATE ----
+    // Define parameters
+    struct Parameters {
+        juce::AudioParameterFloat* attack{nullptr};
+        juce::AudioParameterFloat* decay{nullptr};
+        juce::AudioParameterFloat* sustain{nullptr};
+        juce::AudioParameterFloat* release{nullptr};
+        juce::AudioParameterFloat* reverbMix{nullptr};
+        juce::AudioParameterFloat* delayMix{nullptr};
+        juce::AudioParameterFloat* chorusMix{nullptr};
+        juce::AudioParameterFloat* saturationDrive{nullptr};
+        juce::AudioParameterChoice* presetIndex{nullptr};
+    };
+    Parameters parameters;
+    juce::AudioProcessorValueTreeState state;
+    [[nodiscard]] static juce::AudioProcessorValueTreeState::ParameterLayout 
+    createParameterLayout(Parameters& parameters);
     
     void applySoundADSRParams();
 

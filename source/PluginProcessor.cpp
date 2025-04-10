@@ -7,93 +7,15 @@
 
 //==============================================================================
 
-namespace {
-static auto streamToVector (juce::InputStream& stream)
-{
-    using namespace juce;
-    std::vector<std::byte> result ((size_t) stream.getTotalLength());
-    stream.setPosition (0);
-    [[maybe_unused]] const auto bytesRead = stream.read (result.data(), result.size());
-    jassert (bytesRead == (ssize_t) result.size());
-    return result;
-}
-
-static const char* getMimeForExtension (const juce::String& extension)
-{
-    using namespace juce;
-
-    static const std::unordered_map<String, const char*> mimeMap =
-    {
-        { { "htm"   },  "text/html"                },
-        { { "html"  },  "text/html"                 },
-        { { "txt"   },  "text/plain"               },
-        { { "jpg"   },  "image/jpeg"               },
-        { { "png"   },  "image/png"                },
-        { { "jpeg"  },  "image/jpeg"               },
-        { { "svg"   },  "image/svg+xml"            },
-        { { "ico"   },  "image/vnd.microsoft.icon" },
-        { { "json"  },  "application/json"         },
-        { { "png"   },  "image/png"                },
-        { { "css"   },  "text/css"                 },
-        { { "map"   },  "application/json"         },
-        { { "js"    },  "text/javascript"          },
-        { { "woff2" },  "font/woff2"               }
-    };
-
-    if (const auto it = mimeMap.find (extension.toLowerCase()); it != mimeMap.end())
-        return it->second;
-
-    jassertfalse;
-    return "";
-}
-} // namespace
-
 PluginProcessor::PluginProcessor()
      : AudioProcessor (BusesProperties()
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)),
-    parameters(*this, nullptr, "PARAMETERS",
-                 { std::make_unique<juce::AudioParameterFloat>("gain", "Gain", 0.0f, 1.0f, 0.5f),
-                   std::make_unique<juce::AudioParameterFloat>("frequency", "Frequency", 20.0f, 20000.0f, 440.0f) })
+    state{*this, nullptr, "PARAMETERS", createParameterLayout(parameters)}
 {
-    parameters.createAndAddParameter("attack", "Attack", "Attack", juce::NormalisableRange<float>(0.1f, 1.0f, 0.01f), this->attack, nullptr, nullptr);
-    parameters.createAndAddParameter("decay", "Decay", "Decay", juce::NormalisableRange<float>(0.1f, 1.0f, 0.01f), this->decay, nullptr, nullptr);
-    parameters.createAndAddParameter("sustain", "Sustain", "Sustain", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), this->sustain, nullptr, nullptr);
-    parameters.createAndAddParameter("release", "Release", "Release", juce::NormalisableRange<float>(0.1f, 1.0f, 0.01f), this->release, nullptr, nullptr);
-    parameters.createAndAddParameter("reverbMix", "Reverb", "Reverb", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), this->reverbMix, nullptr, nullptr);
-    parameters.createAndAddParameter("delayMix", "Delay", "Delay", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), this->delayMix, nullptr, nullptr);
-    parameters.createAndAddParameter("chorusMix", "Chorus", "Chorus", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), this->chorusMix, nullptr, nullptr);
-    parameters.createAndAddParameter("driveMix", "Drive", "Drive", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), this->saturationDrive, nullptr, nullptr);
-
     // Add voices to the sampler
     for (int i = 0; i < 8; ++i)
         sampler.addVoice(new juce::SamplerVoice());
-
-
-    webView = std::make_unique<juce::WebBrowserComponent>(juce::WebBrowserComponent::Options{}
-        .withBackend(juce::WebBrowserComponent::Options::Backend::webview2)
-        .withResourceProvider([this](const juce::String& url) { return getResource(url); })
-        .withNativeIntegrationEnabled()
-        .withEventListener("presetSelectionChanged", [this](const juce::var& message) {
-            setPreset(message["presetIndex"]);
-        }).withEventListener("setAttack", [this](const juce::var& message) {
-            setAttack(message["attack"]);
-        }).withEventListener("setDecay", [this](const juce::var& message) {
-            setDecay(message["decay"]);
-        }).withEventListener("setSustain", [this](const juce::var& message) {
-            setSustain(message["sustain"]);
-        }).withEventListener("setRelease", [this](const juce::var& message) {
-            setRelease(message["release"]);
-        }).withEventListener("setReverbMix", [this](const juce::var& message) {
-            setReverbMix(message["mix"]);
-        }).withEventListener("setDelayMix", [this](const juce::var& message) {
-            setDelayMix(message["mix"]);
-        }).withEventListener("setChorusMix", [this](const juce::var& message) {
-            setChorusMix(message["mix"]);
-        }).withEventListener("setSaturationDrive", [this](const juce::var& message) {
-            setSaturationDrive(message["drive"]);
-        }));
     
-    webView->goToURL(webView->getResourceProviderRoot());
 
     // Initialize reverb parameters
     reverbParams.roomSize = 0.5f;
@@ -111,7 +33,7 @@ PluginProcessor::PluginProcessor()
     chorus.setFeedback(0.5f); // Feedback (0 to 1)
     chorus.setMix(0.0f); // Mix (0 to 1)
     
-    setPreset(0);
+    setPreset(1);
 }
 
 PluginProcessor::~PluginProcessor()
@@ -121,13 +43,92 @@ PluginProcessor::~PluginProcessor()
     //delete currentSound;
     currentSound = nullptr;  // Safeguard against dangling pointer
 
-    webView.reset();
     reverb.reset();
     delayLine.reset();
     chorus.reset();
 }
 
 //==============================================================================
+
+juce::AudioProcessorValueTreeState::ParameterLayout PluginProcessor::createParameterLayout(Parameters& parameters) {
+    juce::AudioProcessorValueTreeState::ParameterLayout layout;
+
+    // Add parameters to the layout
+    {
+        auto parameter = std::make_unique<juce::AudioParameterFloat>("attack", "Attack", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), 0.0f);
+        parameters.attack = parameter.get();
+        layout.add(std::move(parameter));
+    }
+
+    {
+        auto parameter = std::make_unique<juce::AudioParameterFloat>("decay", "Decay", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), 0.0f);
+        parameters.decay = parameter.get();
+        layout.add(std::move(parameter));
+    }
+
+    {
+        auto parameter = std::make_unique<juce::AudioParameterFloat>("sustain", "Sustain", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), 1.0f);
+        parameters.sustain = parameter.get();
+        layout.add(std::move(parameter));
+    }
+
+    {
+        auto parameter = std::make_unique<juce::AudioParameterFloat>("release", "Release", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), 0.0f);
+        parameters.release = parameter.get();
+        layout.add(std::move(parameter));
+    }
+
+    {
+        auto parameter = std::make_unique<juce::AudioParameterFloat>("reverbMix", "Reverb Mix", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), 0.0f);
+        parameters.reverbMix = parameter.get();
+        layout.add(std::move(parameter));
+    }
+
+    {
+        auto parameter = std::make_unique<juce::AudioParameterFloat>("delayMix", "Delay Mix", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), 0.0f);
+        parameters.delayMix = parameter.get();
+        layout.add(std::move(parameter));
+    }
+
+    {
+        auto parameter = std::make_unique<juce::AudioParameterFloat>("chorusMix", "Chorus Mix", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), 0.0f);
+        parameters.chorusMix = parameter.get();
+        layout.add(std::move(parameter));
+    }
+
+    {
+        auto parameter = std::make_unique<juce::AudioParameterFloat>("saturationDrive", "Drive", juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f), 0.0f);
+        parameters.saturationDrive = parameter.get();
+        layout.add(std::move(parameter));
+    }
+    {
+         // Create a StringArray of preset names from BinaryData
+         juce::StringArray presetNames;
+         for (int i = 0; i < BinaryData::namedResourceListSize; ++i) {
+             juce::String name = BinaryData::namedResourceList[i];
+             
+             // Replace underscores with spaces
+             name = name.replace("_", " ");
+             
+             // Only add .wave files (presets) and remove ".wav" extension if present
+             if (name.endsWithIgnoreCase("wav")) {
+                name = name.dropLastCharacters(3);
+             
+                // Trim any whitespace from the end
+                name = name.trim();
+                
+                presetNames.add(name);
+             }
+                 
+         }
+        
+        auto parameter = std::make_unique<juce::AudioParameterChoice>("presetIndex", "Preset Index", presetNames, 0);
+        parameters.presetIndex = parameter.get();
+        layout.add(std::move(parameter));
+    }
+
+    return layout;
+}
 
 void PluginProcessor::setPreset(int index)
 {
@@ -190,27 +191,6 @@ void PluginProcessor::applySoundADSRParams()
     adsrParams.release = release;
     
     currentSound->setEnvelopeParameters(adsrParams);
-}
-
-auto PluginProcessor::getResource(const juce::String& url) -> std::optional<Resource>
-{
-    //const auto resourceToRetrieve = url == "/" ? "index.html" : url.fromFirstOccurrenceOf("/", false, false);
-    const auto resourceToRetrieve = url == "/" ? "index.html" : url.fromLastOccurrenceOf("/", false, false);
-    
-    // Convert resourceToRetrieve to a valid C++ identifier
-    juce::String resourceName = resourceToRetrieve.replaceCharacter('/', '_').replaceCharacter('.', '_').removeCharacters("-");
-    
-    // Get the resource data and size
-    int resourceSize = 0;
-    const char* resourceData = BinaryData::getNamedResource(resourceName.toRawUTF8(), resourceSize);
-
-    if (resourceData != nullptr && resourceSize > 0)
-    {
-        const auto extension = resourceToRetrieve.fromLastOccurrenceOf(".", false, false);
-        return Resource{std::vector<std::byte>(reinterpret_cast<const std::byte*>(resourceData), reinterpret_cast<const std::byte*>(resourceData) + resourceSize), getMimeForExtension(extension)};
-    }
-
-    return std::nullopt;
 }
 
 const juce::String PluginProcessor::getName() const
@@ -334,14 +314,25 @@ void PluginProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     auto totalNumOutputChannels = getTotalNumOutputChannels();
 
     // Get automation parameters
-    setDelayMix(parameters.getRawParameterValue("delayMix")->load());
-    setSaturationDrive(parameters.getRawParameterValue("driveMix")->load());
-    setChorusMix(parameters.getRawParameterValue("chorusMix")->load());
-    setReverbMix(parameters.getRawParameterValue("reverbMix")->load());
-    setAttack(parameters.getRawParameterValue("attack")->load());
-    setDecay(parameters.getRawParameterValue("decay")->load());
-    setSustain(parameters.getRawParameterValue("sustain")->load());
-    setRelease(parameters.getRawParameterValue("release")->load());
+    // setDelayMix(state.getRawParameterValue("delayMix")->load());
+    // setSaturationDrive(state.getRawParameterValue("driveMix")->load());
+    // setChorusMix(state.getRawParameterValue("chorusMix")->load());
+    // setReverbMix(state.getRawParameterValue("reverbMix")->load());
+    // setAttack(state.getRawParameterValue("attack")->load());
+    // setDecay(state.getRawParameterValue("decay")->load());
+    // setSustain(state.getRawParameterValue("sustain")->load());
+    // setRelease(state.getRawParameterValue("release")->load());
+
+    setDelayMix(parameters.delayMix->get());
+    setSaturationDrive(parameters.saturationDrive->get());
+    setChorusMix(parameters.chorusMix->get());
+    setReverbMix(parameters.reverbMix->get());
+    setAttack(parameters.attack->get());
+    setDecay(parameters.decay->get());
+    setSustain(parameters.sustain->get());
+    setRelease(parameters.release->get());
+    
+    setPreset(parameters.presetIndex->getIndex());
 
     // Set delay time based on BPM. We have to do it here because this is the only place where we can get the BPM from the host
     double bpm = 120.0; // Default in case host doesn't provide BPM
@@ -450,7 +441,7 @@ bool PluginProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* PluginProcessor::createEditor()
 {
-    return new PluginProcessorEditor (*this);
+    return new PluginEditor (*this);
 }
 
 //==============================================================================
